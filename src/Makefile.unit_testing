@@ -1,0 +1,70 @@
+CONFIG := unit_testing
+### some variables and targets are stored in a shared makefile
+include Makefile.common
+# paths
+SRC_B := $(BLD)/src
+T_INC := $(TST)/headers
+COV_REP := $(REPORTS)/coverage_report
+COV_INF := $(BLD)/coverage_info
+# filenames specification
+TST_REPORT_R := $(REPORTS)/tests_report_raw.txt
+COV_REPORT := gcov_report.html
+# project files
+T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
+T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
+# build parameters
+LDLIBS += $(shell pkg-config --libs-only-l check)
+LDFLAGS += $(shell pkg-config --libs-only-L check)
+DBGFLAGS = -g
+COVFLAG := --coverage
+export TST
+
+
+.PHONY: test
+test:
+	$(info )
+	$(info *** silently compiling code covered build version for unit testing ***)
+	$(info *** compiler parameters for tests .o files: $(WFLAGS) $(STDFLAG) $(shell pkg-config --cflags check) -I$(INC) -I$(T_INC))
+	$(info *** compiler parameters for functions .o files: $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS))
+	$(info *** linker parameters: $(COVFLAG) $(LDFLAGS) $(LDLIBS))
+	$(MAKE) -f Makefile.unit_testing $(T_EXES)
+
+$(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
+	$(dir_guard)
+	$(CC) $(DBGFLAGS) $(COVFLAG) $^ $(LDFLAGS) $(LDLIBS) -o $@
+	-mv $(OBJ)/s21_$*.gcno $(COV_INF) 2> /dev/null
+	-./$@ | tee -a $(TST_REPORT_R) > >(bash testing/scripts/format_toutput.sh)
+	mv $(OBJ)/s21_$*.gcda $(COV_INF)
+
+$(OBJ)/s21_%.o: CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS)
+$(OBJ)/s21_%.o: $(SRC)/s21_%.c | $(OBJ)
+	$(CC) -c $(CFLAGS) $< -o $@
+
+$(OBJ)/%_test.o: CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(shell pkg-config --cflags check) -I$(INC) -I$(T_INC)
+$(OBJ)/%_test.o: $(SRC_B)/%_test.c | $(OBJ)
+	$(CC) -c $(CFLAGS) $< -o $@
+
+$(SRC_B)/%_test.c: $(CHK)/%_test.check
+	$(dir_guard)
+	checkmk clean_mode=1 $< > $@
+	$(format_the_file)
+
+# directories creation
+$(OBJ):
+	@$(MK) $@
+$(COV_INF):
+	@$(MK) $@
+$(REPORTS):
+	@$(MK) $@
+
+
+.PHONY: gcov_report
+gcov_report: $(T_EXES)
+ifeq (, $(shell which gcovr))
+	$(error "gcovr" tool should be installed)
+endif
+	@$(MK) $(COV_REP)
+	gcovr --html-details --html-self-contained -o $(COV_REP)/$(COV_REPORT) $(COV_INF)
+ifeq ($(OS), macOS)
+	open $(COV_REP)/$(COV_REPORT)
+endif

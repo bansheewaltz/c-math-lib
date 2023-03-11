@@ -1,3 +1,13 @@
+.vscode
+build
+reports
+**/*.a
+**/*.out
+**/*.gcda
+**/*.gcno
+**/*.dSYM
+**/*.DS_Store
+
 # Prerequisites
 *.d
 

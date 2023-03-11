@@ -1,0 +1,76 @@
+PROJNAME := s21_math
+# end directories
+BUILD := ../build
+REPORTS := ../reports
+# programs specification
+CC := gcc
+AR := ar
+COV := gcovr
+LINT := clang-format -style=Google
+SHELL := /bin/bash
+MEMCHECK := valgrind
+# paths
+SRC := lib
+INC := lib/include# public header
+HDR := $(SRC)/utils# private headers
+UTL := $(SRC)/utils
+TST := testing
+CHK := $(TST)/check_files
+BLD = $(BUILD)/$(CONFIG)# CONFIG is specified in each individual Makefile
+OBJ = $(BLD)/obj
+BIN = $(BLD)/bin
+LIB := $(BUILD)/release/bin/lib
+SCRIPTS := $(TST)/scripts
+# project files
+CHKS := $(wildcard $(CHK)/*.check)
+SRCS := $(CHKS:$(CHK)/%_test.check=$(SRC)/s21_%.c)
+UTLS := $(wildcard $(UTL)/*.c)
+OBJS := $(CHKS:$(CHK)/%_test.check=$(OBJ)/s21_%.o)
+INCS := $(INC) $(HDR)
+HDRS := $(shell find $(INCS) -name *.h)
+# specifications detection
+KERNEL := $(shell uname -s)
+DISTRO := $(shell cat /etc/os-release 2>/dev/null | grep -o '^NAME="[^"]*' | sed 's/NAME="//g')
+ARCHITECTURE := $(shell uname -m)
+OS :=
+ifeq ($(KERNEL), Darwin)
+	OS := macOS
+endif
+ifeq ($(KERNEL), Linux)
+	ifeq ($(DISTRO), Ubuntu)
+		OS := Ubuntu
+	endif
+	ifeq ($(DISTRO), Alpine Linux)
+		OS := Alpine
+	endif
+endif
+# filenames specification
+LIBNAME := $(PROJNAME)
+# compilation parameters
+WFLAGS := -Wall -Werror -Wextra -pedantic
+LDLIBS := -l$(LIBNAME)
+LDFLAGS := -L$(LIB)
+DEFINES := -DMALLOC_FAIL_VALUE=13
+STDFLAG := -std=c11
+INCFLAGS := $(INCS:%=-I%)
+DBGFLAGS ?= -g0
+LINTFLAG = -i
+CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
+# special targets and variables
+.SECONDARY:# keeps all intermediate files (otherwise, they are automatically deleted)
+.SUFFIXES:# cleans-up debug info
+.DELETE_ON_ERROR:# deletes target-files that caused an error during the build
+.DEFAULT_GOAL := all
+MAKEFLAGS += --no-print-directory
+MAKEFLAGS += --output-sync=target
+# macros
+RM := rm -rf
+MK := mkdir -p
+dir_guard = @$(MK) $(@D)
+format_the_file = $(LINT) $(LINTFLAG) $@
+
+
+.PHONY: clean_build
+clean_build:
+	$(RM) $(BUILD)
+	$(RM) *.a
