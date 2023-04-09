@@ -1,6 +1,8 @@
 CONFIG := unit_testing
 ### some variables and targets are stored in a shared makefile
 include Makefile.common
+# tools specification
+COV ?= gcovr
 # paths
 SRC_B := $(BLD)/src
 T_INC := $(TST)/headers
@@ -46,7 +48,7 @@ $(OBJ)/%_test.o: $(SRC_B)/%_test.c | $(OBJ)
 
 $(SRC_B)/%_test.c: $(CHK)/%_test.check
 	$(dir_guard)
-	checkmk clean_mode=1 $< > $@
+	checkmk $< > $@
 	$(format_the_file)
 
 # directories creation

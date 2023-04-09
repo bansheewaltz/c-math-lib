@@ -2,24 +2,26 @@ PROJNAME := s21_math
 # end directories
 BUILD := ../build
 REPORTS := ../reports
-# programs specification
+# tools specification. goes to the PACKAGES variable afterwards
 CC := gcc
 AR := ar
 COV := gcovr
 LINT := clang-format -style=Google
 SHELL := /bin/bash
 MEMCHECK := valgrind
+LIBS := check
+UTILS := pkg-config
 # paths
 SRC := lib
 INC := lib/include# public header
-HDR := $(SRC)/utils# private headers
+HDR := $(SRC)/headers# private headers
 UTL := $(SRC)/utils
-TST := testing
-CHK := $(TST)/check_files
+TST := tests
+CHK := $(TST)/.check
 BLD = $(BUILD)/$(CONFIG)# CONFIG is specified in each individual Makefile
 OBJ = $(BLD)/obj
 BIN = $(BLD)/bin
-LIB := $(BUILD)/release/bin/lib
+LIB := $(BUILD)/output/lib
 SCRIPTS := $(TST)/scripts
 # project files
 CHKS := $(wildcard $(CHK)/*.check)
@@ -43,6 +45,10 @@ ifeq ($(KERNEL), Linux)
 	ifeq ($(DISTRO), Alpine Linux)
 		OS := Alpine
 	endif
+endif
+PACKAGES := $(SHELL) $(UTILS) $(CC) $(AR) $(LINT) $(LIBS) $(COV)
+ifeq ($(KERNEL), Linux)
+	PACKAGES += $(MEMCHECK)
 endif
 # filenames specification
 LIBNAME := $(PROJNAME)

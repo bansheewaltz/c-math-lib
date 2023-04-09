@@ -1,6 +1,14 @@
 {
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange",
+    "editor.renderWhitespace": "all",
     "files.associations": {
         "*.check": "plaintext",
         "Makefile*": "makefile",
-    }
+    },
+    "C_Cpp.codeAnalysis.runAutomatically": true,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "readability-braces-around-statements"
+    ],
 }

@@ -19,7 +19,7 @@ The russian version of the task can be found in the repository.
 
 ## Preamble  
 
-![s21_math](info/misc/eng/s21_math.png)
+![s21_math](task/misc/eng/s21_math.png)
 
 Planet Earth, USA, New York State, 1956.
 

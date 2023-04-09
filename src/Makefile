@@ -5,12 +5,14 @@ include Makefile.common
 ifeq ($(CONFIG), debug)
 	DBGFLAGS := -g
 	CFLAGS := $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
-else
-	CFLAGS := $(WFLAGS) $(STDFLAG) $(INCFLAGS)
+endif
+ifeq ($(CONFIG), release)
+	CFLAGS := -O3 $(INCFLAGS)
 endif
 ifeq ($(OS), Alpine)
 	CFLAGS := $(DBGFLAGS) $(INCFLAGS)
 endif
+CFLAGS ?= $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
 # Makefile search paths
 vpath %.c $(SRC) $(UTL)
 vpath lib%.a $(LIB)
@@ -32,13 +34,15 @@ ifneq ($(shell which valgrind), )
 	$(MAKE) memcheck
 endif
 endif
-
+e:
+	@echo $(OBJS)
 s21_math.a: $(OBJS)
 	ar -rsc $@ $^
+	cp $(INC) .
 
 $(OBJ)/%.o: %.c $(HDRS) | $(OBJ)
 	$(CC) -c $(CFLAGS) -o $@ $<
-
+# directory
 $(OBJ):
 	@$(MK) $@
 
@@ -58,6 +62,19 @@ re: clean
 	$(MAKE) all
 
 
+# helper targets
+.PHONY: check
+check:
+	command -v 
+
+.PHONY: prep
+prep:
+ifeq ($(KERNEL), Linux)
+	sudo apt install -y pkg-config check gcovr
+endif
+ifeq ($(KERNEL), Darwin)
+	yes | brew install pkg-config check gcovr
+endif
 
 .PHONY: lib
 lib: libs21_math.a
@@ -72,10 +89,21 @@ ifeq (, $(shell which valgrind))
 endif
 	@$(MAKE) -s -f Makefile.memcheck $@
 
+.PHONY: asan
+asan: lib
+ifeq ($(ARCHITECTURE), arm64)
+	$(error adress sanitizers work only on x64 at the time)
+endif
+	@$(MAKE) -s -f Makefile.asan $@
+
 .PHONY: linter linter_check
 linter_check: LINTFLAG := -n
 linter linter_check:
 	$(LINT) $(LINTFLAG) $(shell find . -type f -name '*.h' -o -name '*.c')
+
+.PHONY: tidy
+tidy:
+	clang-tidy $(shell find . -type f -name '*.c') -- -Ilib/headers -Iinclude
 
 .PHONY: miniverter
 miniverter: clean
@@ -89,23 +117,12 @@ endif
 	$(MAKE) clean_build
 	bash $(SCRIPTS)/run_docker_image.sh
 
-.PHONY: test1
-test1: s21_math.a test
-	@$(MAKE) -s -f Makefile.memcheck $@
-
 .PHONY: brew
 brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 
-.PHONY: prep
-prep:
-ifeq ($(KERNEL), Linux)
-	sudo apt install -y pkg-config check gcovr
-endif
-ifeq ($(KERNEL), Debian)
-	yes | brew install pkg-config check gcvor
-endif
 
-# testf:
-# 	gcc -g $(WFLAGS) $(INCFLAGS) lib/s21_sprintf.c $(LDFLAGS) $(LDLIBS)
-# 	./a.out
+### debugging
+testf: lib
+	gcc -g $(WFLAGS) $(INCFLAGS) tmp.c $(LDFLAGS) $(LDLIBS)
+	./a.out

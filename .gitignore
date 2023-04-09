@@ -1,4 +1,4 @@
-.vscode
+.vscode/launch.json
 build
 reports
 **/*.a
@@ -7,6 +7,7 @@ reports
 **/*.gcno
 **/*.dSYM
 **/*.DS_Store
+**/tmp.*
 
 # Prerequisites
 *.d

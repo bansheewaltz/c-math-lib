@@ -1,11 +1,6 @@
 #ifndef INCLUDE_S21_MATH_H_
 #define INCLUDE_S21_MATH_H_
 
-#define S21_E 2.71828182845904523536028747135266250
-#define S21_PI 3.14159265358979323846264338327950288
-#define S21_NAN 0.0 / 0.0
-#define S21_INFINITY 1.0 / 0.0
-
 /* absolute value */
 int s21_abs(int x);
 long double s21_fabs(double x);
