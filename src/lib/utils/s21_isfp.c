@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "s21_utils.h"
+#include "s21_fp_utils.h"
 
 bool s21_isfp(double x) {
   // int fp = *(int*)&x;

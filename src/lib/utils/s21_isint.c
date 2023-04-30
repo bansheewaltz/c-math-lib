@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "s21_utils.h"
+#include "s21_fp_utils.h"
 
 bool s21_isint(double x) {
   if (x - (int64_t)x == 0) {

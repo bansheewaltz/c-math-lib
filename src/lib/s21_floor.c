@@ -1,5 +1,5 @@
-#include "s21_defines.h"
-#include "s21_utils.h"
+#include "s21_fp_utils.h"
+#include "s21_math.h"
 
 long double s21_ceil(double x) {
   long long int tmp = (long long int)x;

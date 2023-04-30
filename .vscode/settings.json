@@ -8,7 +8,4 @@
     },
     "C_Cpp.codeAnalysis.runAutomatically": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
-    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
-        "readability-braces-around-statements"
-    ],
 }

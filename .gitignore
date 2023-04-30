@@ -7,7 +7,7 @@ reports
 **/*.gcno
 **/*.dSYM
 **/*.DS_Store
-**/tmp.*
+**/temp.*
 
 # Prerequisites
 *.d

@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#include "s21_utils.h"
+#include "s21_fp_utils.h"
 
 long double s21_ceil(double x) {
   if (s21_isnan(x) || s21_isinf(x) || s21_isint(x)) {
@@ -11,8 +11,9 @@ long double s21_ceil(double x) {
 
   if (x > 0) {
     x = tmp + 1;
-  } else
+  } else {
     x = tmp;
+  }
 
   return x;
 }
