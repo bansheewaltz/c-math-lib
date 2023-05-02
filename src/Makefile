@@ -34,8 +34,7 @@ ifneq ($(shell which valgrind), )
 	$(MAKE) memcheck
 endif
 endif
-e:
-	@echo $(OBJS)
+
 s21_math.a: $(OBJS)
 	ar -rsc $@ $^
 	cp $(INC)/$(LIBNAME).h .
@@ -54,14 +53,19 @@ test gcov_report: lib
 clean:
 	$(RM) $(BUILD)
 
-.PHONY: fclean
+.PHONY: fclean # full clean
 fclean: clean
 	$(RM) $(REPORTS)
 	$(RM) $(LIBNAME).a
 	$(RM) $(LIBNAME).h
 
+.PHONY: tclean # temp files clean
+tclean:
+	$(RM) *.out*
+	$(RM) temp.c
+
 .PHONY: re
-re: clean
+re: fclean
 	$(MAKE) all
 
 
@@ -109,7 +113,7 @@ tidy:
 	clang-tidy $(shell find . -type f -name '*.c') -- -Ilib/headers -Iinclude
 
 .PHONY: miniverter
-miniverter: clean
+miniverter: fclean
 	cd $(SCRIPTS) && bash run_miniverter_test.sh
 
 .PHONY: container
@@ -125,11 +129,9 @@ brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 
 
-### debugging
-# testf: lib
-# 	gcc -g $(WFLAGS) $(INCFLAGS) temp.c $(LDFLAGS) $(LDLIBS)
-# 	./a.out
+### debugging misc
 testf: lib
 	gcc -g -Iinclude -Ilib/headers temp.c s21_math.a
 	./a.out
-	
+u: # shows variable's value
+	@echo $(OBJS)
