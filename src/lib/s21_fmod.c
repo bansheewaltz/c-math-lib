@@ -11,7 +11,8 @@ long double s21_fmod(double x, double y) {
     return 0;
   }
 
-  long double whole_part = s21_trunc(x / y);
+  long double quotient = x / y;
+  long double whole_part = s21_trunc(quotient);
   long double result = x - whole_part * y;
 
   return result;
