@@ -253,7 +253,7 @@
     double exp = sin(x);
     double res = s21_sin(x);
     
-    ck_assert_double_eq_tol(exp, res, 1e+1);
+    ck_assert_double_eq_tol(exp, res, 1e0);
 
 
 #test dbl_max
@@ -262,7 +262,7 @@
     double exp = sin(x);
     double res = s21_sin(x);
     
-    ck_assert_double_eq_tol(exp, res, 1e+1);
+    ck_assert_double_eq_tol(exp, res, 1e0);
 
 
 #test double_10_6
@@ -325,4 +325,4 @@
     double exp = sin(x);
     double res = s21_sin(x);
     
-    ck_assert_double_eq_tol(exp, res, 1e+1);
+    ck_assert_double_eq_tol(exp, res, 1e0);
