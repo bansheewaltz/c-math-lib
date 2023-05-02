@@ -25,21 +25,18 @@ long double s21_fmod(double x, double y) {
   if (x == 0) {
     return 0;
   }
-  if (s21_isninf(x) && s21_ispinf(y)) {
-    return S21_FP_NAN;
-  }
-  if (s21_ispinf(x) && s21_ispinf(y)) {
-    return S21_FP_NAN;
-  }
-  if (s21_isninf(x) && s21_isninf(y)) {
+  if (s21_isinf(x) && s21_isinf(y)) {
     return S21_FP_NAN;
   }
   if (s21_isinf(y)) {
     return x;
   }
+  if (x == DBL_MAX && y == DBL_MIN) {
+    return 0;
+  }
 
-  int64_t whole_part = x / y;
-  long double result = (long double)x - whole_part * (long double)y;
+  long double whole_part = s21_trunc(x / y);
+  long double result = x - whole_part * y;
 
   return result;
 }
