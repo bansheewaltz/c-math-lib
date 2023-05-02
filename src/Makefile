@@ -38,7 +38,7 @@ e:
 	@echo $(OBJS)
 s21_math.a: $(OBJS)
 	ar -rsc $@ $^
-	cp $(INC) .
+	cp $(INC)/$(LIBNAME).h .
 
 $(OBJ)/%.o: %.c $(HDRS) | $(OBJ)
 	$(CC) -c $(CFLAGS) -o $@ $<
@@ -53,9 +53,12 @@ test gcov_report: lib
 .PHONY: clean
 clean:
 	$(RM) $(BUILD)
+
+.PHONY: fclean
+fclean: clean
 	$(RM) $(REPORTS)
 	$(RM) $(LIBNAME).a
-	$(RM) *.out*
+	$(RM) $(LIBNAME).h
 
 .PHONY: re
 re: clean
@@ -123,6 +126,10 @@ brew:
 
 
 ### debugging
+# testf: lib
+# 	gcc -g $(WFLAGS) $(INCFLAGS) temp.c $(LDFLAGS) $(LDLIBS)
+# 	./a.out
 testf: lib
-	gcc -g $(WFLAGS) $(INCFLAGS) tmp.c $(LDFLAGS) $(LDLIBS)
+	gcc -g -Iinclude -Ilib/headers temp.c s21_math.a
 	./a.out
+	

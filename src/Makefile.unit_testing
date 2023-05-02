@@ -35,7 +35,8 @@ $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	$(dir_guard)
 	$(CC) $(DBGFLAGS) $(COVFLAG) $^ $(LDFLAGS) $(LDLIBS) -o $@
 	-mv $(OBJ)/s21_$*.gcno $(COV_INF) 2> /dev/null
-	-./$@ | tee -a $(TST_REPORT_R) > >(bash testing/scripts/format_toutput.sh)
+	# -./$@ | tee -a $(TST_REPORT_R) > >(bash testing/scripts/format_toutput.sh)
+	-./$@ | tee -a $(TST_REPORT_R)
 	mv $(OBJ)/s21_$*.gcda $(COV_INF)
 
 $(OBJ)/s21_%.o: CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS)
