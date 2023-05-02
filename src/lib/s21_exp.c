@@ -1,22 +1,24 @@
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
+#define LDBL_MAX_EXP_POWER 700
+
+// through taylor series
 long double s21_exp(double x) {
-  long double res = 1;
-  if (x == S21_FP_PINF) {
-    res = S21_FP_PINF;
-  } else if (x == -S21_FP_PINF) {
-    res = 0;
-  } else if (x != x) {
-    res = S21_FP_NAN;
-  } else {
-    long double rez_temp = 1;
-    long double i = 1;
-    while (rez_temp || -rez_temp > S21_EPSILON) {
-      rez_temp *= x / i;
-      res += rez_temp;
-      i++;
-    }
+  if (x > LDBL_MAX_EXP_POWER) {
+    return S21_FP_PINF;
   }
-  return res;
+  if (x < -LDBL_MAX_EXP_POWER) {
+    return 0;
+  }
+
+  long double ith_term = 1;  // 1 is zeroth term
+  long double partial_sum = ith_term;
+
+  for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {
+    ith_term = ith_term * x / i;
+    partial_sum += ith_term;
+  }
+
+  return partial_sum;
 }

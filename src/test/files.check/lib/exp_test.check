@@ -1,0 +1,387 @@
+#include "s21_tests.h"
+#include <stdio.h>
+#include <math.h>
+
+#suite exp
+#test arb_pos
+    double x = 15.L/13.L;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+    
+
+#test arb_neg
+    double x = -15.L/13.L;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test integral_pos
+    double x = 13;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test integral_neg
+    double x = -13;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test zero_pos
+    double x = 0.0;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test zero_neg
+    double x = 0.0;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test plus_one
+    double x = +1;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test minus_one
+    double x = -1;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test not_a_number
+    double x = NAN;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_pos
+    double x = S21_PI;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_2_pos
+    double x = S21_PI/2;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_4_pos
+    double x = S21_PI/4;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_3_pos
+    double x = S21_PI/3;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_6_pos
+    double x = S21_PI/3;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pos_2_pi
+    double x = 2 * S21_PI;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_neg
+    double x = -S21_PI;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_2_neg
+    double x = -S21_PI/2;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_4_neg
+    double x = -S21_PI/4;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_3_neg
+    double x = -S21_PI/3;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test pi_6_neg
+    double x = -S21_PI/3;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test neg_2_pi
+    double x = 2 * -S21_PI;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test big_integral_pi
+    double x = 999 * 17 * S21_PI;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test big_pi
+    double x = 999 * 17 * S21_PI / 11;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test int_max
+    double x = INT_MAX;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test int_min
+    double x = INT_MIN;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test flt_min
+    double x = FLT_MIN;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test dbl_min
+    double x = DBL_MIN;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test flt_max
+    double x = FLT_MAX;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test dbl_max
+    double x = DBL_MAX;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_10_6
+    double x = 3322119978.169291;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_11_5
+    double x = 33221199781.69291;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_12_4
+    double x = 332211997816.9291;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_13_3
+    double x = 3322119978169.291;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_14_2
+    double x = 33221199781692.91;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_15_1
+    double x = 332211997816929.1;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_16_0
+    double x = 3322119978169291;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test double_16_0_max
+    double x = 9999999999999999;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test pos_inf
+    double x = INFINITY;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+
+
+#test neg_inf
+    double x = -INFINITY;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, S21_TOLERANCE);
+
+
+#test large
+    double x = 150;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test arb_integer
+    double x = 17;
+    
+    double expected = exp(x);
+    double res = s21_exp(x);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
