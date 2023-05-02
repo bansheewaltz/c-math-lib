@@ -12,4 +12,6 @@ HeaderFilterRegex: >
   "(tests/headers).*\\.h$"
 CheckOptions:
   - key: readability-identifier-length.IgnoredParameterNames
-    value: ^[ijkxyzabn]$
+    value: ^[abijknxy]$
+  - key: readability-identifier-length.IgnoredVariableNames
+    value: ^[ab]$

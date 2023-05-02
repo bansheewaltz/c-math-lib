@@ -5,8 +5,7 @@
     "files.associations": {
         "*.check": "plaintext",
         "Makefile*": "makefile",
-        "__locale": "c",
-        "s21_fp_utils.h": "c"
+        "*.h": "c",
     },
     "debug.autoExpandLazyVariables": true,
     "debug.console.closeOnEnd": true,
