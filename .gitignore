@@ -8,6 +8,8 @@ reports
 **/*.dSYM
 **/*.DS_Store
 **/temp.*
+**/temp
+src/*.h
 
 # Prerequisites
 *.d

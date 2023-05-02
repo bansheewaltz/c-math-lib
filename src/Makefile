@@ -130,8 +130,8 @@ brew:
 
 
 ### debugging misc
-testf: lib
-	gcc -g -Iinclude -Ilib/headers temp.c s21_math.a
-	./a.out
+testf: lib # temporary file for debugging is called temp.c and located in src
+	gcc -g -Iinclude -Ilib/headers temp.c $(LIBNAME).a -o temp
+	./temp
 u: # shows variable's value
 	@echo $(OBJS)
