@@ -1,7 +1,7 @@
 #include "s21_tests.h"
 
 #suite abs
-#test classic
+#test arbitrary
     int x = -17;
 
     int exp = abs(x);

@@ -1,7 +1,7 @@
 #include "s21_tests.h"
 
 #suite expected
-#test classic
+#test arbitrary
     int x = 17;
 
     long double expected = exp(x);

@@ -1,68 +1,68 @@
 #include "s21_tests.h"
 
-#suite pow
-#test classic
+#suite log
+#test arbitrary
     int x = 17;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 #test float_test
     float x = 1.5;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);  
 
 #test float2_test
     float x = 0.000005;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);    
 
 
 #test zero_test
     int x = 0;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 #test negative_zero
     int x = -0;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);   
 
 #test NAN_test
     float x = NAN;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 #test INF_test
     float x = inf;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);   
 
 #test negative_INF_test
     float x = inf;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);       
 
 #test text
     char x = 'x'; 
     
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 
@@ -70,16 +70,16 @@
 #test max_int
     int x = INT_MAX - 1; 
     
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 
 #test negative_value
     int x = -17;
 
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);
 
 
@@ -88,6 +88,6 @@
     int step = INT_MAX / 100 * 2;
     int x = INT_MIN + _i * step;
     
-    long double expected = pow(x);
-    long double res = s21_pow(x);
+    long double expected = log(x);
+    long double res = s21_log(x);
     ck_assert_int_eq(expected, res);

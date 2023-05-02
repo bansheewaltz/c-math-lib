@@ -1,57 +1,57 @@
 #include "s21_tests.h"
 #include <stdio.h>
 
-#suite ceil
+#suite fabs
 #test arbitrary_positive
     long double x = 15.l/13.l;
-    //
-    long double exp = ceil(x);
-    long double res = s21_ceil(x);
-    //
+    
+    long double exp = fabs(x);
+    long double res = s21_fabs(x);
+    
     ck_assert_ldouble_eq(exp, res);
 
 
 #test arbitrary_negative
     long double x = -15.l/13.l;
-    //
-    long double exp = ceil(x);
-    long double res = s21_ceil(x);
-    //
+    
+    long double exp = fabs(x);
+    long double res = s21_fabs(x);
+    
     ck_assert_ldouble_eq(exp, res);
 
 
 #test zero
     long double x = 0.l;
-    //
-    long double exp = ceil(x);
-    long double res = s21_ceil(x);
-    //
+    
+    long double exp = fabs(x);
+    long double res = s21_fabs(x);
+    
     ck_assert_ldouble_eq(exp, res);
 
 
 #test max_ldbl
     long double x = LDBL_MAX;
-    //
-    long double exp = ceil(x);
-    long double res = s21_ceil(x);
-    //
+    
+    long double exp = fabs(x);
+    long double res = s21_fabs(x);
+    
     ck_assert_ldouble_eq(exp, res);
 
 
 #test min_ldbl
     long double x = LDBL_MIN;
-    //
-    long double exp = ceil(x);
-    long double res = s21_ceil(x);
-    //
+    
+    long double exp = fabs(x);
+    long double res = s21_fabs(x);
+    
     ck_assert_ldouble_eq(exp, res);
 
 
 #test-loop(0, 320) iteration
     long double n = func_Uniform(0.1, 1, _i);
     long double step = n * pow(10, _i);
-    //
-    long double exp = ceil(step);
-    long double res = s21_ceil(step);
-    //
+    
+    long double exp = fabs(step);
+    long double res = s21_fabs(step);
+    
     ck_assert_ldouble_eq(exp, res);

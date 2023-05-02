@@ -1,7 +1,7 @@
 #include "s21_tests.h"
 
 #suite isfp
-#test classic_true
+#test arbitrary_true
     double x = -17.;
 
     int exp = true;
@@ -10,7 +10,7 @@
     ck_assert_int_eq(exp, res);
 
 
-#test classic_false
+#test arbitrary_false
     double x = -17.5;
 
     int exp = false;

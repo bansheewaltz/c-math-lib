@@ -1,0 +1,47 @@
+#include "s21_tests.h"
+#include <stdio.h>
+
+#suite trunc
+#test arbitrary_positive
+    double x = 15.l/13.l;
+    
+    long double exp = trunc(x);
+    long double res = s21_trunc(x);
+    
+    ck_assert_ldouble_eq(exp, res);
+
+
+#test arbitrary_negative
+    double x = -15.l/13.l;
+    
+    long double exp = trunc(x);
+    long double res = s21_trunc(x);
+    
+    ck_assert_ldouble_eq(exp, res);
+
+
+#test zero
+    double x = 0.l;
+    
+    long double exp = trunc(x);
+    long double res = s21_trunc(x);
+    
+    ck_assert_ldouble_eq(exp, res);
+
+
+#test max_ldbl
+    double x = LDBL_MAX;
+    
+    long double exp = trunc(x);
+    long double res = s21_trunc(x);
+    
+    ck_assert_ldouble_eq(exp, res);
+
+
+#test min_ldbl
+    double x = LDBL_MIN;
+    
+    long double exp = trunc(x);
+    long double res = s21_trunc(x);
+    
+    ck_assert_ldouble_eq(exp, res);
