@@ -29,6 +29,7 @@ test:
 	$(info *** compiler parameters for tests .o files: $(WFLAGS) $(STDFLAG) $(shell pkg-config --cflags check) -I$(INC) -I$(T_INC))
 	$(info *** compiler parameters for functions .o files: $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS))
 	$(info *** linker parameters: $(COVFLAG) $(LDFLAGS) $(LDLIBS))
+	$(info )
 	$(MAKE) -f Makefile.unit_testing $(T_EXES)
 
 $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
