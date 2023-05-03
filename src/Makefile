@@ -45,7 +45,8 @@ $(OBJ)/%.o: %.c $(HDRS) | $(OBJ)
 $(OBJ):
 	@$(MK) $@
 
-.PHONY: test gcov_report
+.PHONY: test ftest gcov_report
+ftest: fclean test
 test gcov_report: lib
 	@$(MAKE) -s -f Makefile.unit_testing $@
 
