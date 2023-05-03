@@ -1,9 +1,3 @@
-// #include "./utils/s21_fp_utils.h"
-// #include "./include/s21_math.h"
-
-// #include <stdio.h>
-// #include <math.h>
-
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
@@ -30,13 +24,3 @@ long double s21_pow(double base, double exp) {
   }
   return y;
 }
-
-// int main(){
-//     double x = 0;
-//     double y = 0;
-//     scanf("%lf", &x);
-//     scanf("%lf", &y);
-//     printf("x = %lf, y = %lf, s21_pow = %Lf\n", x, y, s21_pow(x, y));
-//     printf("x = %lf, y = %lf,     pow = %f\n", x, y, pow(x, y));
-//     return 0;
-// }
