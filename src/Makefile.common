@@ -53,6 +53,7 @@ endif
 # filenames specification
 LIBNAME := $(PROJNAME)
 # compilation parameters
+OFLAG ?= -O0
 WFLAGS := -Wall -Werror -Wextra -Wconversion -Wshadow -Wpedantic -pedantic-errors
 LDLIBS := -l$(LIBNAME)
 LDFLAGS := -L$(LIB)
@@ -61,7 +62,7 @@ STDFLAG := -std=c11
 INCFLAGS := $(INCS:%=-I%)
 DBGFLAGS ?= -g0
 LINTFLAG = -i
-CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
+CFLAGS = $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # special targets and variables
 .SECONDARY:# keeps all intermediate files (otherwise, they are automatically deleted)
 .SUFFIXES:# cleans-up debug info
