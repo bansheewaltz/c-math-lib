@@ -6,7 +6,7 @@ REPORTS := ../reports
 CC := gcc
 AR := ar
 COV := gcovr
-LINT := clang-format -style=Google
+LINT := clang-format
 SHELL := /bin/bash
 MEMCHECK := valgrind
 LIBS := check
@@ -61,7 +61,7 @@ DEFINES := -DMALLOC_FAIL_VALUE=13
 STDFLAG := -std=c11
 INCFLAGS := $(INCS:%=-I%)
 DBGFLAGS ?= -g0
-LINTFLAG = -i
+LINTFLAGS = -style=Google
 CFLAGS = $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # special targets and variables
 .SECONDARY:# keeps all intermediate files (otherwise, they are automatically deleted)
@@ -74,4 +74,4 @@ MAKEFLAGS += --output-sync=target
 RM := rm -rf
 MK := mkdir -p
 dir_guard = @$(MK) $(@D)
-format_the_file = $(LINT) $(LINTFLAG) $@
+format_the_file = $(LINT) -i $(LINTFLAGS) $@

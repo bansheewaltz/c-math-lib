@@ -62,11 +62,6 @@ fclean: clean
 	$(RM) $(LIBNAME).a
 	$(RM) $(LIBNAME).h
 
-.PHONY: tclean# temp files clean
-tclean:
-	$(RM) *.out*
-	$(RM) temp.c
-
 .PHONY: re
 re: fclean
 	$(MAKE) all
@@ -106,10 +101,11 @@ ifeq ($(ARCHITECTURE), arm64)
 endif
 	@$(MAKE) -s -f Makefile.asan $@
 
-.PHONY: linter linter_check
-linter_check: LINTFLAG := -n
-linter linter_check:
-	$(LINT) $(LINTFLAG) $(shell find . -type f -name '*.h' -o -name '*.c')
+.PHONY: linter_check linter_fix
+linter_fix: LINTFLAGS := -i $(LINTFLAGS)
+linter_check: LINTFLAGS := -n $(LINTFLAGS)
+linter_check linter_fix:
+	$(LINT) $(LINTFLAGS) $(shell find . -type f -name '*.h' -o -name '*.c')
 
 .PHONY: tidy
 tidy:
