@@ -1,5 +1,10 @@
 include Makefile.common
 
+.PHONY: tclean# temp files clean
+tclean:
+	$(RM) temp
+	$(RM) temp.dSYM
+
 ### debugging misc
 testf: lib # temporary file for debugging is called temp.c and located in src
 	gcc -g -I$(INC) -I$(HDR) temp.c $(LIBNAME).a -o temp
