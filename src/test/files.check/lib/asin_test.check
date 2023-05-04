@@ -1,0 +1,153 @@
+#include "s21_tests.h"
+#include <stdio.h>
+#include <math.h>
+
+#suite asin
+#test arb_gt_one_pos
+    double x = 15.0/13.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+    
+
+#test arb_gt_one_neg
+    double x = -15.0/13.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test arb_lt_one_pos
+    double x = 0.00017/0.13;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test arb_lt_one_neg
+    double x = -0.00017/0.13;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test integral_pos
+    double x = 13.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_neg
+    double x = -13.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test zero_pos
+    double x = 0.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test zero_neg
+    double x = -0.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test plus_one
+    double x = +1.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test minus_one
+    double x = -1.0;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test not_a_number
+    double x = NAN;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test flt_min_pos
+    double x = FLT_MIN;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test flt_min_neg
+    double x = -FLT_MIN;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test dbl_min_pos
+    double x = DBL_MIN;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test dbl_min_neg
+    double x = -DBL_MIN;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+
+#test-loop(0, 127) one_neg__to__one_pos
+    double x = -1.0 + _i * (2.0 / 126);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, 1e-6);
