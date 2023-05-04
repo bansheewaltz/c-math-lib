@@ -3,13 +3,11 @@
 
 // through Taylor series
 long double s21_atan(double x) {
-  const long double atan_of_1 = 0.7853981633974483L;
-
   if (x == 1.0) {
-    return atan_of_1;
+    return S21_PI_4;
   }
   if (x == -1.0) {
-    return -atan_of_1;
+    return -S21_PI_4;
   }
 
   long double ith_term;
