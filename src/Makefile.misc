@@ -1,0 +1,9 @@
+include Makefile.common
+
+### debugging misc
+testf: lib # temporary file for debugging is called temp.c and located in src
+	gcc -g -I$(INC) -I$(HDR) temp.c $(LIBNAME).a -o temp
+	./temp
+
+u: # shows variable's value
+	@echo $(OBJS)

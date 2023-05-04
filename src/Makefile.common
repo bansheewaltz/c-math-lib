@@ -74,9 +74,3 @@ RM := rm -rf
 MK := mkdir -p
 dir_guard = @$(MK) $(@D)
 format_the_file = $(LINT) $(LINTFLAG) $@
-
-
-.PHONY: clean_build
-clean_build:
-	$(RM) $(BUILD)
-	$(RM) *.a

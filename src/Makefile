@@ -1,6 +1,7 @@
 CONFIG ?= debug
 ### many variables are stored in a shared makefile
 include Makefile.common
+include Makefile.misc
 # build parameters
 ifeq ($(CONFIG), debug)
 	DBGFLAGS := -g
@@ -54,13 +55,13 @@ test gcov_report: lib
 clean:
 	$(RM) $(BUILD)
 
-.PHONY: fclean # full clean
+.PHONY: fclean# full clean
 fclean: clean
 	$(RM) $(REPORTS)
 	$(RM) $(LIBNAME).a
 	$(RM) $(LIBNAME).h
 
-.PHONY: tclean # temp files clean
+.PHONY: tclean# temp files clean
 tclean:
 	$(RM) *.out*
 	$(RM) temp.c
@@ -128,11 +129,3 @@ endif
 .PHONY: brew
 brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
-
-
-### debugging misc
-testf: lib # temporary file for debugging is called temp.c and located in src
-	gcc -g -Iinclude -Ilib/headers temp.c $(LIBNAME).a -o temp
-	./temp
-u: # shows variable's value
-	@echo $(OBJS)
