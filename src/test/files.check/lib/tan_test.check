@@ -4,7 +4,7 @@
 
 #suite tan
 #test arb_pos
-    double x = 15.L/13.L;
+    double x = 15.0/13.0;
     
     double exp = tan(x);
     double res = s21_tan(x);
@@ -13,7 +13,7 @@
     
 
 #test arb_neg
-    double x = -15.L/13.L;
+    double x = -15.0/13.0;
     
     double exp = tan(x);
     double res = s21_tan(x);
@@ -333,7 +333,7 @@
 
 
 #test double_16_0_max
-    double x = 9999999999999999;
+    double x = 9999999999999999.0;
     
     double exp = tan(x);
     double res = s21_tan(x);
