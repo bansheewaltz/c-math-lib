@@ -6,5 +6,5 @@ long double s21_factorial(int x) {
     return 1;
   }
 
-  return x * s21_factorial(x - 1);
+  return (long double)x * s21_factorial(x - 1);
 }
