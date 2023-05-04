@@ -3,7 +3,7 @@
 
 #define LDBL_MAX_EXP_POWER 700
 
-// through taylor series
+// through Taylor series
 long double s21_exp(double x) {
   if (x > LDBL_MAX_EXP_POWER) {
     return S21_FP_PINF;
@@ -12,7 +12,7 @@ long double s21_exp(double x) {
     return 0;
   }
 
-  long double ith_term = 1;  // 1 is zeroth term
+  long double ith_term = 1;  // 1 is the zeroth term
   long double partial_sum = ith_term;
 
   for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {

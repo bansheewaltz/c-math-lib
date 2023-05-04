@@ -1,7 +1,7 @@
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
-// through taylor series
+// through Taylor series
 long double s21_sin(double x) {
   if (s21_isnan(x) || s21_isinf(x)) {
     return x;
@@ -9,7 +9,7 @@ long double s21_sin(double x) {
 
   x = s21_trig_range_reduction(x);
 
-  long double ith_term = x;  // x is zeroth term
+  long double ith_term = x;  // x is the zeroth term
   long double partial_sum = ith_term;
 
   for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {

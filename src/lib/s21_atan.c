@@ -14,7 +14,7 @@ long double s21_atan(double x) {
   long double partial_sum;
 
   if (-1.0 < x && x < 1.0) {
-    ith_term = x;  // x is zeroth term
+    ith_term = x;  // x is the zeroth term
     partial_sum = ith_term;
 
     for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {
@@ -23,7 +23,7 @@ long double s21_atan(double x) {
     }
 
   } else {
-    ith_term = 1.0 / x;  // 1/x is zeroth term
+    ith_term = 1.0 / x;  // 1/x is the zeroth term
     partial_sum = ith_term;
 
     for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {
