@@ -140,7 +140,7 @@
 
 
 #test pi_6_pos
-    double x = S21_PI/3;
+    double x = S21_PI/6;
     
     double exp = atan(x);
     double res = s21_atan(x);
@@ -194,7 +194,7 @@
 
 
 #test pi_6_neg
-    double x = -S21_PI/3;
+    double x = -S21_PI/6;
     
     double exp = atan(x);
     double res = s21_atan(x);
