@@ -4,7 +4,7 @@
 
 #suite sin
 #test arb_pos
-    double x = 15.L/13.L;
+    double x = 15.0/13.0;
     
     double exp = sin(x);
     double res = s21_sin(x);
@@ -13,7 +13,7 @@
     
 
 #test arb_neg
-    double x = -15.L/13.L;
+    double x = -15.0/13.0;
     
     double exp = sin(x);
     double res = s21_sin(x);
@@ -329,9 +329,28 @@
 
 
 #test double_16_0_max
-    double x = 9999999999999999;
+    double x = 9999999999999999.0;
     
     double exp = sin(x);
     double res = s21_sin(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
+
+
+#test inf_pos
+    double x = INFINITY;
+    
+    double exp = sin(x);
+    double res = s21_sin(x);
+    
+    ck_assert_double_infinite(exp);
+    ck_assert_double_infinite(res);
+
+
+#test inf_neg
+    double x = -INFINITY;
+    
+    double exp = sin(x);
+    double res = s21_sin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
