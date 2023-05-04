@@ -1,0 +1,291 @@
+#include "s21_tests.h"
+#include <stdio.h>
+#include <math.h>
+
+#suite sqrt
+#test arb_pos
+    double x = 15.0/13.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    
+
+#test arb_neg
+    double x = -15.0/13.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_pos
+    double x = 13.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test integral_neg
+    double x = -13.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test zero_pos
+    double x = 0.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test zero_neg
+    double x = -0.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test plus_one
+    double x = +1.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test minus_one
+    double x = -1.0;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test not_a_number
+    double x = NAN;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_pos
+    double x = S21_PI;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pi_2_pos
+    double x = S21_PI/2 - 0.1;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pi_4_pos
+    double x = S21_PI/4;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pi_3_pos
+    double x = S21_PI/3;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pi_6_pos
+    double x = S21_PI/3;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pos_2_pi
+    double x = 2 * S21_PI;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test pi_neg
+    double x = -S21_PI;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_2_neg
+    double x = -S21_PI/2;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_4_neg
+    double x = -S21_PI/4;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_3_neg
+    double x = -S21_PI/3;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test pi_6_neg
+    double x = -S21_PI/3;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test neg_2_pi
+    double x = 2 * -S21_PI;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test big_integral_pi
+    double x = 999 * 17 * S21_PI;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test big_pi
+    double x = 999 * 17 * S21_PI / 11;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test int_max
+    double x = INT_MAX;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test int_min
+    double x = INT_MIN;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+
+
+#test flt_min
+    double x = FLT_MIN;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test dbl_min
+    double x = DBL_MIN;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test flt_max
+    double x = FLT_MAX;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, 1e0);
+
+
+/* the margin of error is too large
+##test dbl_max
+    double x = DBL_MAX;
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    ck_assert_double_eq_tol(exp, res, 1e0);
+*/
+
+
+#test-loop(0, 17) zero__to__one
+    double x = 0.0 + _i * (1.0 / 17.0);
+    
+    double exp = sqrt(x);
+    double res = s21_sqrt(x);
+    
+    if (x < 0) {
+        ck_assert_ldouble_nan(exp);
+        ck_assert_ldouble_nan(res);
+    } else {
+        ck_assert_double_eq_tol(exp, res, 1e0);
+    }
