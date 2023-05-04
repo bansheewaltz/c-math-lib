@@ -1,7 +1,7 @@
 #include "s21_tests.h"
 
 #suite pow
-#test integral_arb__integral_same
+#test integral_arb_pos__integral_same
     double base = 17;
     double exp = base; 
 
@@ -11,7 +11,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__square
+#test integral_arb_pos__square
     double base = 17;
     double exp = 2;
 
@@ -21,7 +21,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__one
+#test integral_arb_pos__one
     double base = 17;
     double exp = 1;
 
@@ -31,7 +31,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__zero
+#test integral_arb_pos__zero
     double base = 17;
     double exp = 0;
 
@@ -41,9 +41,9 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__cube
+#test integral_arb_pos__cube
     double base = 17;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -51,7 +51,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__minus_one
+#test integral_arb_pos__minus_one
     double base = 17;
     double exp = -1;
 
@@ -61,7 +61,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__minus_square
+#test integral_arb_pos__minus_square
     double base = 17;
     double exp = -2;
 
@@ -71,7 +71,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__minus_cube
+#test integral_arb_pos__minus_cube
     double base = 17;
     double exp = -3;
 
@@ -81,7 +81,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__nan
+#test integral_arb_pos__nan
     double base = 17;
     double exp = NAN;
 
@@ -92,7 +92,7 @@
     ck_assert_ldouble_nan(res);
 
 
-#test integral_arb__inf_pos
+#test integral_arb_pos__inf_pos
     double base = 17;
     double exp = INFINITY;
 
@@ -104,7 +104,7 @@
     ck_assert(res == expected);
 
 
-#test integral_arb__inf_neg
+#test integral_arb_pos__inf_neg
     double base = 17;
     double exp = -INFINITY;
 
@@ -114,7 +114,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__dbl_max
+#test integral_arb_pos__dbl_max
     double base = 17;
     double exp = DBL_MAX;
 
@@ -126,7 +126,7 @@
     ck_assert(res == expected);
 
 
-#test integral_arb__dbl_min
+#test integral_arb_pos__dbl_min
     double base = 17;
     double exp = DBL_MIN;
 
@@ -136,9 +136,129 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test integral_arb__integral_large
+#test integral_arb_pos__double_arb_pos
     double base = 17;
-    double exp = 777;
+    double exp = 13.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__double_arb_pos_ltone
+    double base = 17;
+    double exp = 0.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__one_third
+    double base = 17;
+    double exp = (double)1/3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__three_seventh
+    double base = 17;
+    double exp = (double)3/7;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__double_arb_pos_ltone_neg
+    double base = 17;
+    double exp = -0.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__one_third_neg
+    double base = 17;
+    double exp = -(double)1/3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__three_seventh_neg
+    double base = 17;
+    double exp = -(double)3/7;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__double_arb_neg
+    double base = 17;
+    double exp = -13.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__integral_large_pos
+    double base = 17;
+    double exp = 177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__integral_std_pos
+    double base = 17;
+    double exp = 7;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__integral_std_neg
+    double base = 17;
+    double exp = -7;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__integral_large_neg
+    double base = 17;
+    double exp = -177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_pos__int_max
+    double base = 17;
+    double exp = INT_MAX;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -146,6 +266,260 @@
     ck_assert_double_infinite(expected);
     ck_assert_double_infinite(res);
     ck_assert(res == expected);
+
+
+#test integral_arb_pos__int_min
+    double base = 17;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__integral_same
+    double base = -17;
+    double exp = base; 
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__square
+    double base = -17;
+    double exp = 2;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__one
+    double base = -17;
+    double exp = 1;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__zero
+    double base = -17;
+    double exp = 0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__cube
+    double base = -17;
+    double exp = 3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__minus_one
+    double base = -17;
+    double exp = -1;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__minus_square
+    double base = -17;
+    double exp = -2;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__minus_cube
+    double base = -17;
+    double exp = -3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__nan
+    double base = -17;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__inf_pos
+    double base = -17;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test integral_arb_neg__inf_neg
+    double base = -17;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__dbl_max
+    double base = -17;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test integral_arb_neg__dbl_min
+    double base = -17;
+    double exp = DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__double_arb_pos
+    double base = -17;
+    double exp = 13.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__double_arb_neg
+    double base = -17;
+    double exp = -13.217;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__integral_large_pos
+    double base = -17;
+    double exp = -177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__integral_large_neg
+    double base = -17;
+    double exp = -177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__int_max
+    double base = -17;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test integral_arb_neg__int_min
+    double base = -17;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test integral_arb_neg__double_arb_pos_gtone
+    double base = -17;
+    double exp = 4.1234;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__double_arb_neg_gtone
+    double base = -17;
+    double exp = -4.1234;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__double_arb_neg_ltone
+    double base = -17;
+    double exp = -0.1234;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test integral_arb_neg__double_arb_pos_ltone
+    double base = -17;
+    double exp = 0.1234;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
 
 
 #test integral_large__integral_same
@@ -490,12 +864,14 @@
 
 #test dbl_max__cube
     double base = DBL_MAX;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_eq_tol(expected, res, 1e-6);
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
 
 
 #test dbl_max__minus_one
@@ -625,7 +1001,7 @@
 
 #test dbl_min__cube
     double base = DBL_MIN;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -710,7 +1086,7 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test nan__integral_same
+#test nan__same
     double base = NAN;
     double exp = base; 
 
@@ -755,12 +1131,13 @@
 
 #test nan__cube
     double base = NAN;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_eq_tol(expected, res, 1e-6);
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
 
 
 #test nan__minus_one
@@ -829,9 +1206,86 @@
     ck_assert_ldouble_nan(res);
 
 
-#test nan__dbl_min
+#test nan__dbl_min_pos
     double base = NAN;
-    double exp = NAN;
+    double exp = DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__dbl_min_neg
+    double base = NAN;
+    double exp = -DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__dbl_max_pos
+    double base = NAN;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__dbl_max_neg
+    double base = NAN;
+    double exp = -DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__double_arb_pos_gthone
+    double base = NAN;
+    double exp = 11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__double_arb_gthone_neg
+    double base = NAN;
+    double exp = -11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__double_arb_lthone_pos
+    double base = NAN;
+    double exp = 0.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test nan__double_arb_lthone_neg
+    double base = NAN;
+    double exp = -0.941;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -888,12 +1342,14 @@
 
 #test inf_pos__cube
     double base = INFINITY;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_eq_tol(expected, res, 1e-6);
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
 
 
 #test inf_pos__minus_one
@@ -950,7 +1406,7 @@
 
 #test inf_pos__dbl_min
     double base = INFINITY;
-    double exp = INFINITY;
+    double exp = DBL_MIN;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -958,6 +1414,95 @@
     ck_assert_double_infinite(expected);
     ck_assert_double_infinite(res);
     ck_assert(res == expected);
+
+
+#test inf_pos__dbl_max
+    double base = INFINITY;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_pos__integral_arb_pos
+    double base = INFINITY;
+    double exp = 17.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_pos__nan
+    double base = INFINITY;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test inf_pos__integral_arb_neg
+    double base = INFINITY;
+    double exp = -17.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test inf_pos__double_arb_pos_gthone
+    double base = INFINITY;
+    double exp = 11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_pos__double_arb_gthone_neg
+    double base = INFINITY;
+    double exp = -11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test inf_pos__double_arb_lthone_pos
+    double base = INFINITY;
+    double exp = 0.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_pos__double_arb_lthone_neg
+    double base = INFINITY;
+    double exp = -0.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
 
 
 #test inf_neg__integral_same
@@ -977,9 +1522,7 @@
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
-    ck_assert(res == expected);
+    ck_assert_double_eq(expected, res);
 
 
 #test inf_neg__one
@@ -1006,12 +1549,12 @@
 
 #test inf_neg__cube
     double base = -INFINITY;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_eq_tol(expected, res, 1e-6);
+    ck_assert_double_eq(expected, res);
 
 
 #test inf_neg__minus_one
@@ -1054,9 +1597,9 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test inf_neg__dbl_min
+#test inf_neg__inf_pos
     double base = -INFINITY;
-    double exp = DBL_MIN;
+    double exp = INFINITY;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1066,8 +1609,103 @@
     ck_assert(res == expected);
 
 
-#test double_arb__integral_same
-    double base = 17.L / 7.L;
+#test inf_neg__dbl_min
+    double base = -INFINITY;
+    double exp = DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test inf_neg__dbl_max
+    double base = -INFINITY;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_neg__nan
+    double base = -INFINITY;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test inf_neg__double_arb_pos
+    double base = -INFINITY;
+    double exp = 11.23413;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test inf_neg__double_arb_neg
+    double base = -INFINITY;
+    double exp = -11.23413;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test inf_neg__double_arb_pos_gthone
+    double base = -INFINITY;
+    double exp = 11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test inf_neg__double_arb_gthone_neg
+    double base = -INFINITY;
+    double exp = -11.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test inf_neg__double_arb_lthone_pos
+    double base = -INFINITY;
+    double exp = 0.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test inf_neg__double_arb_lthone_neg
+    double base = -INFINITY;
+    double exp = -0.941;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__integral_same
+    double base = 17.0 / 7.0;
     double exp = base; 
 
     double expected = pow(base, exp);
@@ -1076,8 +1714,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__square
-    double base = 17.L / 7.L;
+#test double_arb_pos__square
+    double base = 17.0 / 7.0;
     double exp = 2;
 
     double expected = pow(base, exp);
@@ -1086,8 +1724,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__one
-    double base = 17.L / 7.L;
+#test double_arb_pos__one
+    double base = 17.0 / 7.0;
     double exp = 1;
 
     double expected = pow(base, exp);
@@ -1096,8 +1734,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__zero
-    double base = 17.L / 7.L;
+#test double_arb_pos__zero
+    double base = 17.0 / 7.0;
     double exp = 0;
 
     double expected = pow(base, exp);
@@ -1106,9 +1744,9 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__cube
-    double base = 17.L / 7.L;
-    double exp = 0;
+#test double_arb_pos__cube
+    double base = 17.0 / 7.0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1116,8 +1754,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__minus_one
-    double base = 17.L / 7.L;
+#test double_arb_pos__minus_one
+    double base = 17.0 / 7.0;
     double exp = -1;
 
     double expected = pow(base, exp);
@@ -1126,8 +1764,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__minus_square
-    double base = 17.L / 7.L;
+#test double_arb_pos__minus_square
+    double base = 17.0 / 7.0;
     double exp = -2;
 
     double expected = pow(base, exp);
@@ -1136,8 +1774,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__minus_cube
-    double base = 17.L / 7.L;
+#test double_arb_pos__minus_cube
+    double base = 17.0 / 7.0;
     double exp = -3;
 
     double expected = pow(base, exp);
@@ -1146,9 +1784,9 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__double_arb
-    double base = 17.L / 7.L;
-    double exp = 17.L / 7.L;
+#test double_arb_pos__double_arb_pos
+    double base = 17.0 / 7.0;
+    double exp = 17.0 / 7.0;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1156,8 +1794,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test double_arb__dbl_min
-    double base = 17.L / 7.L;
+#test double_arb_pos__dbl_min
+    double base = 17.0 / 7.0;
     double exp = DBL_MIN;
 
     double expected = pow(base, exp);
@@ -1166,7 +1804,324 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test zero_pos__integral_same
+#test double_arb_pos__dbl_max
+    double base = 17.0 / 7.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_pos__nan
+    double base = 17.0 / 7.0;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test double_arb_pos__inf_pos
+    double base = 17.0 / 7.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_pos__inf_neg
+    double base = 17.0 / 7.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__int_arb_pos
+    double base = 17.0 / 7.0;
+    double exp = 17;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__int_arb_neg
+    double base = 17.0 / 7.0;
+    double exp = -17;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__int_max
+    double base = 17.0 / 7.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_pos__int_min
+    double base = 17.0 / 7.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__int_large_pos
+    double base = 17.0 / 7.0;
+    double exp = 177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_pos__int_large_neg
+    double base = 17.0 / 7.0;
+    double exp = -177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__integral_same
+    double base = -17.0 / 7.0;
+    double exp = base; 
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test double_arb_neg__square
+    double base = -17.0 / 7.0;
+    double exp = 2;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__one
+    double base = -17.0 / 7.0;
+    double exp = 1;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__zero
+    double base = -17.0 / 7.0;
+    double exp = 0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__cube
+    double base = -17.0 / 7.0;
+    double exp = 3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__minus_one
+    double base = -17.0 / 7.0;
+    double exp = -1;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__minus_square
+    double base = -17.0 / 7.0;
+    double exp = -2;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__minus_cube
+    double base = -17.0 / 7.0;
+    double exp = -3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__double_arb_neg
+    double base = -17.0 / 7.0;
+    double exp = -17.0 / 7.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test double_arb_neg__dbl_min
+    double base = -17.0 / 7.0;
+    double exp = DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test double_arb_neg__dbl_max
+    double base = -17.0 / 7.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_neg__nan
+    double base = -17.0 / 7.0;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test double_arb_neg__inf_pos
+    double base = -17.0 / 7.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_neg__inf_neg
+    double base = -17.0 / 7.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__int_arb_pos
+    double base = -17.0 / 7.0;
+    double exp = 17;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__int_arb_neg
+    double base = -17.0 / 7.0;
+    double exp = -17;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__int_max
+    double base = -17.0 / 7.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test double_arb_neg__int_min
+    double base = -17.0 / 7.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__int_large_pos
+    double base = -17.0 / 7.0;
+    double exp = 177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test double_arb_neg__int_large_neg
+    double base = -17.0 / 7.0;
+    double exp = -177;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__same
     double base = 0.0;
     double exp = base; 
 
@@ -1208,7 +2163,7 @@
 
 #test zero_pos__cube
     double base = 0.0;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1225,7 +2180,6 @@
     
     ck_assert_double_infinite(expected);
     ck_assert_double_infinite(res);
-    ck_assert(res == expected);
 
 
 #test zero_pos__minus_square
@@ -1252,7 +2206,7 @@
     ck_assert(res == expected);
 
 
-#test zero_pos__dbl_min
+#test zero_pos__dbl_min_pos
     double base = 0.0;
     double exp = DBL_MIN;
 
@@ -1262,7 +2216,128 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test zero_neg__integral_same
+#test zero_pos__dbl_min_neg
+    double base = 0.0;
+    double exp = -DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_pos__dbl_max_pos
+    double base = 0.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__dbl_max_neg
+    double base = 0.0;
+    double exp = -DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_pos__inf_pos
+    double base = 0.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__inf_neg
+    double base = 0.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_pos__int_max
+    double base = 0.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__int_min
+    double base = 0.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_pos__double_arb_pos
+    double base = 0.0;
+    double exp = 13.125;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__double_arb_neg
+    double base = 0.0;
+    double exp = -13.125;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_pos__zero_neg
+    double base = +0.0;
+    double exp = -0.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_pos__nan
+    double base = +0.0;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test zero_neg__same
     double base = -0.0;
     double exp = base; 
 
@@ -1304,7 +2379,7 @@
 
 #test zero_neg__cube
     double base = -0.0;
-    double exp = 0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1319,9 +2394,9 @@
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
-    ck_assert(res == expected);
+    ck_assert_ldouble_infinite(expected);
+    ck_assert_ldouble_infinite(res);
+    ck_assert(res < 0 && expected < 0);
 
 
 #test zero_neg__minus_square
@@ -1331,9 +2406,7 @@
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
-    ck_assert(res == expected);
+    ck_assert_double_eq(expected, res);
 
 
 #test zero_neg__minus_cube
@@ -1348,9 +2421,9 @@
     ck_assert(res == expected);
 
 
-#test zero_neg__dbl_min
+#test zero_neg__dbl_min_pos
     double base = -0.0;
-    double exp = -0.0;
+    double exp = DBL_MIN;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1358,8 +2431,125 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
+#test zero_neg__dbl_min_neg
+    double base = -0.0;
+    double exp = -DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_neg__dbl_max_pos
+    double base = -0.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_neg__dbl_max_neg
+    double base = -0.0;
+    double exp = -DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test zero_neg__inf_pos
+    double base = -0.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_neg__inf_neg
+    double base = -0.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_neg__int_max
+    double base = -0.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_neg__int_min
+    double base = -0.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq(expected, res);
+
+
+#test zero_neg__double_arb_pos
+    double base = -0.0;
+    double exp = 13.125;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_neg__double_arb_neg
+    double base = -0.0;
+    double exp = -13.125;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_infinite(expected);
+    ck_assert_double_infinite(res);
+    ck_assert(res == expected);
+
+
+#test zero_neg__zero_pos
+    double base = -0.0;
+    double exp = +0.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test zero_neg__nan
+    double base = -0.0;
+    double exp = NAN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
 #test one__integral_same
-    double base = 1.0L;
+    double base = 1.0;
     double exp = base; 
 
     double expected = pow(base, exp);
@@ -1369,7 +2559,7 @@
 
 
 #test one__square
-    double base = 1.0L;
+    double base = 1.0;
     double exp = 2;
 
     double expected = pow(base, exp);
@@ -1379,7 +2569,7 @@
 
 
 #test one__one
-    double base = 1.0L;
+    double base = 1.0;
     double exp = 1;
 
     double expected = pow(base, exp);
@@ -1389,8 +2579,8 @@
 
 
 #test one__cube
-    double base = 1.0L;
-    double exp = 0;
+    double base = 1.0;
+    double exp = 3;
 
     double expected = pow(base, exp);
     double res = s21_pow(base, exp);
@@ -1399,7 +2589,7 @@
 
 
 #test one__minus_one
-    double base = 1.0L;
+    double base = 1.0;
     double exp = -1;
 
     double expected = pow(base, exp);
@@ -1409,7 +2599,7 @@
 
 
 #test one__minus_square
-    double base = 1.0L;
+    double base = 1.0;
     double exp = -2;
 
     double expected = pow(base, exp);
@@ -1419,7 +2609,7 @@
 
 
 #test one__minus_cube
-    double base = 1.0L;
+    double base = 1.0;
     double exp = -3;
 
     double expected = pow(base, exp);
@@ -1428,8 +2618,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one__dbl_min
-    double base = 1.0L;
+#test one__dbl_min_pos
+    double base = 1.0;
     double exp = DBL_MIN;
 
     double expected = pow(base, exp);
@@ -1438,8 +2628,118 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__integral_same
-    double base = -1.0L;
+#test one__dbl_min_neg
+    double base = 1.0;
+    double exp = -DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__dbl_max_pos
+    double base = 1.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__dbl_max_neg
+    double base = 1.0;
+    double exp = -DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__inf_pos
+    double base = 1.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__inf_neg
+    double base = 1.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__int_max
+    double base = 1.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__int_min
+    double base = 1.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__double_arb_pos_gtone
+    double base = 1.0;
+    double exp = 21.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__double_arb_neg_gtone
+    double base = 1.0;
+    double exp = -21.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__double_arb_pos_ltone
+    double base = 1.0;
+    double exp = 0.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test one__double_arb_neg_ltone
+    double base = 1.0;
+    double exp = -0.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_integral_same
+    double base = -1.0;
     double exp = base; 
 
     double expected = pow(base, exp);
@@ -1448,8 +2748,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__square
-    double base = -1.0L;
+#test minus_one_square
+    double base = -1.0;
     double exp = 2;
 
     double expected = pow(base, exp);
@@ -1458,8 +2758,28 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__one_neg
-    double base = -1.0L;
+#test minus_one_one
+    double base = -1.0;
+    double exp = 1;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_cube
+    double base = -1.0;
+    double exp = 3;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_minus_one
+    double base = -1.0;
     double exp = -1;
 
     double expected = pow(base, exp);
@@ -1468,28 +2788,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__cube
-    double base = -1.0L;
-    double exp = 0;
-
-    double expected = pow(base, exp);
-    double res = s21_pow(base, exp);
-    
-    ck_assert_double_eq_tol(expected, res, 1e-6);
-
-
-#test one_neg__minus_one_neg
-    double base = -1.0L;
-    double exp = -1;
-
-    double expected = pow(base, exp);
-    double res = s21_pow(base, exp);
-    
-    ck_assert_double_eq_tol(expected, res, 1e-6);
-
-
-#test one_neg__minus_square
-    double base = -1.0L;
+#test minus_one_minus_square
+    double base = -1.0;
     double exp = -2;
 
     double expected = pow(base, exp);
@@ -1498,8 +2798,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__minus_cube
-    double base = -1.0L;
+#test minus_one_minus_cube
+    double base = -1.0;
     double exp = -3;
 
     double expected = pow(base, exp);
@@ -1508,8 +2808,8 @@
     ck_assert_double_eq_tol(expected, res, 1e-6);
 
 
-#test one_neg__dbl_min
-    double base = -1.0L;
+#test minus_one_dbl_min_pos
+    double base = -1.0;
     double exp = DBL_MIN;
 
     double expected = pow(base, exp);
@@ -1517,3 +2817,128 @@
     
     ck_assert_ldouble_nan(expected);
     ck_assert_ldouble_nan(res);
+
+
+#test minus_one_dbl_min_neg
+    double base = -1.0;
+    double exp = -DBL_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test minus_one_dbl_max_pos
+    double base = -1.0;
+    double exp = DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_dbl_max_neg
+    double base = -1.0;
+    double exp = -DBL_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_inf_pos
+    double base = -1.0;
+    double exp = INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_inf_neg
+    double base = -1.0;
+    double exp = -INFINITY;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_int_max
+    double base = -1.0;
+    double exp = INT_MAX;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_int_min
+    double base = -1.0;
+    double exp = INT_MIN;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
+
+
+#test minus_one_double_arb_pos_gtone
+    double base = -1.0;
+    double exp = 21.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test minus_one_double_arb_neg_gtone
+    double base = -1.0;
+    double exp = -21.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test minus_one_double_arb_pos_ltone
+    double base = -1.0;
+    double exp = 0.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test minus_one_double_arb_neg_ltone
+    double base = -1.0;
+    double exp = -0.312L;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_ldouble_nan(expected);
+    ck_assert_ldouble_nan(res);
+
+
+#test minus_0_5__2
+    double base = -0.5;
+    double exp = 2.0;
+
+    double expected = pow(base, exp);
+    double res = s21_pow(base, exp);
+    
+    ck_assert_double_eq_tol(expected, res, 1e-6);
