@@ -13,7 +13,7 @@
 
 long double func_Uniform(double left, double right, int i) {
   srand((unsigned int)(i % MAGIC));
-  long double randomNumber = sin(rand() * rand());
+  long double randomNumber = sin(rand() * rand());  // NOLINT
   return left + (right - left) * fabs(randomNumber);
 }
 
