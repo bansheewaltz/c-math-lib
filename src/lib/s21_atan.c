@@ -1,9 +1,7 @@
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
-#define LOOPS_COUNT 500
-
-// through taylor series
+// through Taylor series
 long double s21_atan(double x) {
   const long double atan_of_1 = 0.7853981633974483L;
 
