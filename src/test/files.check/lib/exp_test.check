@@ -199,8 +199,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test big_pi
@@ -209,8 +208,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test int_max
@@ -219,8 +217,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test int_min
@@ -256,8 +253,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test dbl_max
@@ -266,8 +262,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_10_6
@@ -276,8 +271,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_11_5
@@ -286,8 +280,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_12_4
@@ -296,8 +289,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_13_3
@@ -306,8 +298,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_14_2
@@ -316,8 +307,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_15_1
@@ -326,8 +316,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_16_0
@@ -336,8 +325,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test double_16_0_max
@@ -346,8 +334,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test pos_inf
@@ -356,8 +343,7 @@
     double expected = exp(x);
     double res = s21_exp(x);
     
-    ck_assert_double_infinite(expected);
-    ck_assert_double_infinite(res);
+    ck_assert_double_eq(expected, res);
 
 
 #test neg_inf
