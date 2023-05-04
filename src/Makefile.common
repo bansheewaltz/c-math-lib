@@ -53,7 +53,7 @@ endif
 # filenames specification
 LIBNAME := $(PROJNAME)
 # compilation parameters
-WFLAGS := -Wall -Werror -Wextra -pedantic
+WFLAGS := -Wall -Werror -Wextra -Wconversion -Wshadow -Wpedantic -pedantic-errors
 LDLIBS := -l$(LIBNAME)
 LDFLAGS := -L$(LIB)
 DEFINES := -DMALLOC_FAIL_VALUE=13
