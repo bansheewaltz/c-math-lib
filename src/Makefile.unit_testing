@@ -75,7 +75,7 @@ ifeq ($(OS), macOS)
 endif
 
 .PHONY: show
-show:
+show: gcov_report
 ifeq ($(OS), macOS)
 	open $(COV_REP)/$(COV_REPORT)
 endif
