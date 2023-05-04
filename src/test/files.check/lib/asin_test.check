@@ -143,9 +143,134 @@
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
+#test sin_pi_pos
+    double x = sin(M_PI);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
-#test-loop(0, 127) one_neg__to__one_pos
-    double x = -1.0 + _i * (2.0 / 126);
+
+#test sin_pi_2_pos
+    double x = sin(M_PI / 2.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_3_pos
+    double x = sin(M_PI / 3.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_4_pos
+    double x = sin(M_PI / 4.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_6_pos
+    double x = sin(M_PI / 6.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_12_pos
+    double x = sin(M_PI / 12.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_neg
+    double x = sin(-M_PI);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_2_neg
+    double x = sin(-M_PI / 2.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_3_neg
+    double x = sin(-M_PI / 3.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_4_neg
+    double x = sin(-M_PI / 4.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_6_neg
+    double x = sin(-M_PI / 6.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test sin_pi_12_neg
+    double x = sin(-M_PI / 12.0);
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test one_e_16_neg
+    double x = 1e-16;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test one_e_10_neg
+    double x = 1e-10;
+    
+    double exp = asin(x);
+    double res = s21_asin(x);
+    
+    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+
+
+#test-loop(0, 1000) one_neg__to__one_pos
+    double x = -1.0 + _i * (2.0 / 999);
     
     double exp = asin(x);
     double res = s21_asin(x);
