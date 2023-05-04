@@ -4,7 +4,7 @@
 
 #suite asin
 #test arb_gt_one_pos
-    double x = 15.0/13.0;
+    double x = 15.0 / 13.0;
     
     double exp = asin(x);
     double res = s21_asin(x);
@@ -14,7 +14,7 @@
     
 
 #test arb_gt_one_neg
-    double x = -15.0/13.0;
+    double x = -15.0 / 13.0;
     
     double exp = asin(x);
     double res = s21_asin(x);
@@ -24,7 +24,7 @@
 
 
 #test arb_lt_one_pos
-    double x = 0.00017/0.13;
+    double x = 0.00017 / 0.13;
     
     double exp = asin(x);
     double res = s21_asin(x);
@@ -33,7 +33,7 @@
 
 
 #test arb_lt_one_neg
-    double x = -0.00017/0.13;
+    double x = -0.00017 / 0.13;
     
     double exp = asin(x);
     double res = s21_asin(x);

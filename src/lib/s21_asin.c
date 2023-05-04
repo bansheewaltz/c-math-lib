@@ -9,10 +9,10 @@ long double s21_asin(double x) {
     return S21_FP_NAN;
   }
   if (x == 1.0) {
-    return S21_PI_2;  // NOLINT
+    return S21_PI_2;
   }
   if (x == -1.0) {
-    return -S21_PI_2;  // NOLINT
+    return -S21_PI_2;
   }
   if (x == sin_of_pi_4) {
     return S21_PI_4;
