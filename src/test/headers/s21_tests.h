@@ -11,8 +11,8 @@
 #define S21_TOLERANCE 1e-6
 #define MAGIC 13
 
-long double func_Uniform(float left, float right, int i) {
-  srand(i % MAGIC);
+long double func_Uniform(double left, double right, int i) {
+  srand((unsigned int)(i % MAGIC));
   long double randomNumber = sin(rand() * rand());
   return left + (right - left) * fabs(randomNumber);
 }

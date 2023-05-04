@@ -12,7 +12,8 @@ long double s21_trunc(double x) {
   uint64_t input;
   memcpy(&input, &x, sizeof(double));
 
-  int exponent = ((input >> FRAC_PART_BITS_COUNT) & EXP_BIT_MASK) - EXP_BIAS;
+  int exponent =
+      (int)(((input >> FRAC_PART_BITS_COUNT) & EXP_BIT_MASK) - EXP_BIAS);
 
   if (exponent >= 0) {
     int fractional_bits_count = FRAC_PART_BITS_COUNT - exponent;

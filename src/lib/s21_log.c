@@ -35,7 +35,7 @@ long double s21_log(double x) {
     ith_term = 2 * (x - s21_exp(partial_sum)) / (x + s21_exp(partial_sum));
     partial_sum += ith_term;
   }
-  partial_sum += e_exponent_whole_part_count;
+  partial_sum += (long double)e_exponent_whole_part_count;
 
   if (input_is_smaller_than_one) {
     partial_sum *= -1;
