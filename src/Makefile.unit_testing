@@ -10,7 +10,7 @@ COV_REP := $(REPORTS)/coverage_report
 COV_INF := $(BLD)/coverage_info
 # filenames specification
 TST_REPORT_R := $(REPORTS)/tests_report_raw.txt
-COV_REPORT := gcov_report.html
+COV_REPORT := index.html
 # project files
 T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
 T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
@@ -40,7 +40,7 @@ $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	-./$@ | tee -a $(TST_REPORT_R)
 	mv $(OBJ)/s21_$*.gcda $(COV_INF)
 
-$(OBJ)/s21_%.o: CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS)
+$(OBJ)/s21_%.o: CFLAGS = $(OFLAG) $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS)
 $(OBJ)/s21_%.o: $(SRC)/s21_%.c | $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 
@@ -68,7 +68,14 @@ ifeq (, $(shell which gcovr))
 	$(error "gcovr" tool should be installed)
 endif
 	@$(MK) $(COV_REP)
-	gcovr --html-details --html-self-contained -o $(COV_REP)/$(COV_REPORT) $(COV_INF)
+	gcovr $(COV_INF)
+	gcovr --decisions --html-details --html-self-contained -o $(COV_REP)/$(COV_REPORT) $(COV_INF)
+ifeq ($(OS), macOS)
+	# open $(COV_REP)/$(COV_REPORT)
+endif
+
+.PHONY: show
+show:
 ifeq ($(OS), macOS)
 	open $(COV_REP)/$(COV_REPORT)
 endif

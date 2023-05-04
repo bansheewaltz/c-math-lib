@@ -5,15 +5,16 @@ include Makefile.misc
 # build parameters
 ifeq ($(CONFIG), debug)
 	DBGFLAGS := -g
-	CFLAGS := $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
+	CFLAGS := $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 endif
 ifeq ($(CONFIG), release)
-	CFLAGS := -O3 $(INCFLAGS)
+	OFLAG := -O2
+	CFLAGS := $(OFLAG) $(INCFLAGS)
 endif
 ifeq ($(OS), Alpine)
 	CFLAGS := $(DBGFLAGS) $(INCFLAGS)
 endif
-CFLAGS ?= $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(INCFLAGS)
+# CFLAGS ?= $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # Makefile search paths
 vpath %.c $(SRC) $(UTL)
 vpath lib%.a $(LIB)
@@ -46,9 +47,9 @@ $(OBJ)/%.o: %.c $(HDRS) | $(OBJ)
 $(OBJ):
 	@$(MK) $@
 
-.PHONY: test ftest gcov_report
+.PHONY: test ftest gcov_report show
 ftest: fclean test
-test gcov_report: lib
+test gcov_report show: lib
 	@$(MAKE) -s -f Makefile.unit_testing $@
 
 .PHONY: clean
@@ -101,7 +102,7 @@ endif
 .PHONY: asan
 asan: lib
 ifeq ($(ARCHITECTURE), arm64)
-	$(error adress sanitizers work only on x64 at the time)
+	$(error adress sanitizers work only on x86-64 at the time)
 endif
 	@$(MAKE) -s -f Makefile.asan $@
 
