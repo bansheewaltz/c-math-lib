@@ -18,6 +18,7 @@ bool s21_signbit(double x);
 bool s21_isnegative(double x);
 bool s21_ispositive(double x);
 void s21_print_bits(size_t size, void* ptr);
+void s21_print_fp_sysinfo(void);
 double s21_trig_range_reduction(double x);
 long double s21_trunc(double x);
 
