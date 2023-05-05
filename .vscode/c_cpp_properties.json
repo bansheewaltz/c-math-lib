@@ -8,8 +8,7 @@
                 "${workspaceFolder}/src/test/headers",
                 "/opt/homebrew/Cellar/check/0.15.2/include",
                 "/usr/local/include"
-            ],
-            "cStandard": "c11"
+            ]
         }
     ],
     "version": 4

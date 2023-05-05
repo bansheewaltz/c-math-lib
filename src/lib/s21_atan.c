@@ -10,14 +10,14 @@ long double s21_atan(double x) {
     return -S21_PI_4;
   }
 
-  long double ith_term;
-  long double partial_sum;
+  long double ith_term = 0;
+  long double partial_sum = 0;
 
   if (-1.0 < x && x < 1.0) {
     ith_term = x;  // x is the zeroth term
     partial_sum = ith_term;
 
-    for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {
+    for (int i = 1; s21_fabs((double)ith_term) > S21_EPSILON; ++i) {
       ith_term = -ith_term * x * x / (2 * i + 1) * (2 * (i - 1) + 1);
       partial_sum += ith_term;
     }
@@ -26,7 +26,7 @@ long double s21_atan(double x) {
     ith_term = 1.0 / x;  // 1/x is the zeroth term
     partial_sum = ith_term;
 
-    for (int i = 1; s21_fabs(ith_term) > S21_EPSILON; ++i) {
+    for (int i = 1; s21_fabs((double)ith_term) > S21_EPSILON; ++i) {
       ith_term = -ith_term * 1.0 / (x * x * (2 * i + 1)) * (2 * (i - 1) + 1);
       partial_sum += ith_term;
     }

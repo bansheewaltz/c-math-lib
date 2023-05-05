@@ -22,10 +22,10 @@ long double s21_acos(double x) {
     return 2 * S21_PI - S21_PI_4;
   }
   if (0.0 < x && x < 1.0) {
-    return s21_atan(s21_sqrt(1 - x * x) / x);
+    return s21_atan((double)(s21_sqrt(1 - x * x) / (long double)x));
   }
   if (-1.0 < x && x < 0.0) {
-    return S21_PI + s21_atan(s21_sqrt(1 - x * x) / x);
+    return S21_PI + s21_atan((double)(s21_sqrt(1 - x * x) / (long double)x));
   }
 
   return S21_FP_NAN;

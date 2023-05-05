@@ -1,15 +1,19 @@
 Checks: >
   clang-analyzer-*,
+  clang-diagnostic-*,
   readability-*,
   portability-*,
   performance-*,
-  google-readability*
+  modernize-*,
+  google-*,
   cppcoreguidelines-*,
+  -modernize-macro-to-enum
 WarningsAsErrors: true
+FormatStyle: google
 HeaderFilterRegex: >
   "(include/).*\\.h$",
   "(lib/headers/).*\\.h$", 
-  "(tests/headers).*\\.h$"
+  "(test/headers).*\\.h$"
 CheckOptions:
   - key: readability-identifier-length.IgnoredParameterNames
     value: ^[abijknxy]$

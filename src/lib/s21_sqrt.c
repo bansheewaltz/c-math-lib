@@ -18,7 +18,7 @@ long double s21_sqrt(double x) {
   long double prev_value = 1;
 
   if (x > 0) {
-    while (s21_fabs(intermediate_value - prev_value) > S21_EPSILON) {
+    while (s21_fabs((double)(intermediate_value - prev_value)) > S21_EPSILON) {
       intermediate_value = prev_value;
       prev_value = (prev_value + (x / prev_value)) / 2;
     }

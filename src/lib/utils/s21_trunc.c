@@ -9,7 +9,7 @@
 #define BIT_MASK_64 0xffffffffffffffff
 
 long double s21_trunc(double x) {
-  uint64_t input;
+  uint64_t input = 0;
   memcpy(&input, &x, sizeof(double));
 
   int exponent =

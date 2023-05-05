@@ -21,5 +21,5 @@ long double s21_asin(double x) {
     return -S21_PI_4;
   }
 
-  return s21_atan(x / s21_sqrt(1 - x * x));
+  return s21_atan((double)((long double)x / s21_sqrt(1 - x * x)));
 }

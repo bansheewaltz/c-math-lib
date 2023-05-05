@@ -2,12 +2,12 @@
 #include "s21_math.h"
 
 bool are_theese_boundary_values(double base, double exp, long double *res);
-bool base_eq_one_neg_case(double exp, long double *res);
 bool base_eq_zero_case(double base, double exp, long double *res);
+bool base_eq_one_neg_case(double exp, long double *res);
 bool base_eq_inf_neg_case(double exp, long double *res);
 
 long double s21_pow(double base, double exp) {
-  long double res;
+  long double res = 0;
   if (are_theese_boundary_values(base, exp, &res) == true) {
     return res;  // NOLINT
   }
@@ -20,7 +20,7 @@ long double s21_pow(double base, double exp) {
     }
   }
 
-  res = res_sign * s21_exp(exp * s21_log(base));
+  res = res_sign * s21_exp((double)((long double)exp * s21_log(base)));
 
   return res;
 }
