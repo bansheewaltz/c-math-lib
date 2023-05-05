@@ -1,0 +1,194 @@
+#include <stdio.h>
+#include <stdint.h>
+
+#include "s21_tests.h"
+
+#suite floor
+#test double_arb_pos
+    double x = 15.0 / 13.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test double_arb_neg
+    double x = -15.0 / 13.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test double_arb_lt_one_pos
+    double x = 1.0 / 13.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test double_arb_lt_one_neg
+    double x = -1.0 / 13.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test int_arb_neg
+    double x = -9.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test int_arb_pos
+    double x = 9.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test zero_pos
+    double x = 0.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test zero_neg
+    double x = -0.0;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test dbl_max_pos
+    double x = DBL_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test dbl_max_neg
+    double x = -DBL_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test dbl_min_pos
+    double x = DBL_MIN;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test dbl_min_neg
+    double x = -DBL_MIN;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test flt_min_pos
+    double x = FLT_MIN;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test flt_min_neg
+    double x = -FLT_MIN;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test flt_max_pos
+    double x = FLT_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test flt_max_neg
+    double x = -FLT_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test int_max
+    double x = INT_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test int_min
+    double x = INT_MIN;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test uint64_max_pos
+    double x = (double)UINT64_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test uint64_max_neg
+    double x = -UINT64_MAX;
+    
+    double exp = floor(x);
+    double res = s21_floor(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test-loop(0, 320) iteration
+    double n = func_Uniform(0.1, 1, _i);
+    double step = n * pow(10, _i);
+    
+    double exp = floor(step);
+    double res = s21_floor(step);
+    
+    ck_assert_double_eq(exp, res);

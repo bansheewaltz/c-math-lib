@@ -1,19 +1,18 @@
-#include <stdint.h>
-
 #include "s21_fp_utils.h"
 
 long double s21_ceil(double x) {
-  if (s21_isnan(x) || s21_isinf(x) || s21_isint(x)) {
+  if (!s21_isfinite(x)) {
+    return x;
+  }
+  if (s21_isint(x)) {
     return x;
   }
 
-  int64_t tmp = (int64_t)x;
+  long double truncated_value = s21_trunc(x);
 
   if (x > 0) {
-    x = tmp + 1;
-  } else {
-    x = tmp;
+    ++truncated_value;
   }
 
-  return x;
+  return truncated_value;
 }
