@@ -5,7 +5,7 @@
     double x = -17.;
 
     int exp = true;
-    int res = s21_isfp(x);
+    int res = (double)s21_isfp(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -14,7 +14,7 @@
     double x = -17.5;
 
     int exp = false;
-    int res = s21_isfp(x);
+    int res = (double)s21_isfp(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -23,7 +23,7 @@
     double x = 0.;
 
     int exp = true;
-    int res = s21_isfp(x);
+    int res = (double)s21_isfp(x);
     ck_assert_int_eq(exp, res);
 
 
@@ -31,5 +31,5 @@
     double x = (double)_i;
     
     int exp = true;
-    int res = s21_isfp(x);
+    int res = (double)s21_isfp(x);
     ck_assert_int_eq(exp, res);

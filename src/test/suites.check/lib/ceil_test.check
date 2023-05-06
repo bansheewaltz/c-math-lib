@@ -8,7 +8,7 @@
     double x = 15.0 / 13.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -17,7 +17,7 @@
     double x = -15.0 / 13.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -26,7 +26,7 @@
     double x = 1.0 / 13.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -35,7 +35,7 @@
     double x = -1.0 / 13.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -44,7 +44,7 @@
     double x = -9.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -53,7 +53,7 @@
     double x = 9.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -62,7 +62,7 @@
     double x = 0.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -71,7 +71,7 @@
     double x = -0.0;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -80,7 +80,7 @@
     double x = DBL_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -89,7 +89,7 @@
     double x = -DBL_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -98,7 +98,7 @@
     double x = DBL_MIN;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -107,7 +107,7 @@
     double x = -DBL_MIN;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -116,7 +116,7 @@
     double x = FLT_MIN;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -125,7 +125,7 @@
     double x = -FLT_MIN;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -134,7 +134,7 @@
     double x = FLT_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -143,7 +143,7 @@
     double x = -FLT_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -152,7 +152,7 @@
     double x = INT_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -161,7 +161,7 @@
     double x = INT_MIN;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -170,7 +170,7 @@
     double x = (double)UINT64_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -179,16 +179,16 @@
     double x = -UINT64_MAX;
     
     double exp = ceil(x);
-    double res = s21_ceil(x);
+    double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
 
 
 #test-loop(0, 320) iteration
-    double n = func_Uniform(0.1, 1, _i);
+    double n = (double)func_Uniform(0.1, 1, _i);
     double step = n * pow(10, _i);
     
     double exp = ceil(step);
-    double res = s21_ceil(step);
+    double res = (double)s21_ceil(step);
     
     ck_assert_double_eq(exp, res);

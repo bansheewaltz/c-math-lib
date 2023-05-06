@@ -7,7 +7,7 @@
     double x = 15.0 / 13.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -17,7 +17,7 @@
     double x = -15.0 / 13.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -27,7 +27,7 @@
     double x = 0.00017 / 0.13;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -36,7 +36,7 @@
     double x = -0.00017 / 0.13;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -45,7 +45,7 @@
     double x = 13.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -55,7 +55,7 @@
     double x = -13.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -65,7 +65,7 @@
     double x = 0.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -74,7 +74,7 @@
     double x = -0.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -83,7 +83,7 @@
     double x = +1.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -92,7 +92,7 @@
     double x = -1.0;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -101,7 +101,7 @@
     double x = NAN;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -111,7 +111,7 @@
     double x = FLT_MIN;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -120,7 +120,7 @@
     double x = -FLT_MIN;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -129,7 +129,7 @@
     double x = DBL_MIN;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -138,7 +138,7 @@
     double x = -DBL_MIN;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -147,7 +147,7 @@
     double x = cos(M_PI);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -156,7 +156,7 @@
     double x = cos(M_PI / 2.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -165,7 +165,7 @@
     double x = cos(M_PI / 3.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -174,7 +174,7 @@
     double x = cos(M_PI / 4.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -183,7 +183,7 @@
     double x = cos(M_PI / 6.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -192,7 +192,7 @@
     double x = cos(M_PI / 12.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -201,7 +201,7 @@
     double x = cos(-M_PI);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -210,7 +210,7 @@
     double x = cos(-M_PI / 2.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -219,7 +219,7 @@
     double x = cos(-M_PI / 3.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -228,7 +228,7 @@
     double x = cos(-M_PI / 4.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -237,7 +237,7 @@
     double x = cos(-M_PI / 6.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -246,7 +246,7 @@
     double x = cos(-M_PI / 12.0);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -255,7 +255,7 @@
     double x = 1e-16;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -264,7 +264,7 @@
     double x = 1e-10;
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -273,6 +273,6 @@
     double x = -1.0 + _i * (2.0 / 999);
     
     double exp = acos(x);
-    double res = s21_acos(x);
+    double res = (double)s21_acos(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);

@@ -7,7 +7,7 @@
     double x = 15.0/13.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
     
@@ -16,7 +16,7 @@
     double x = -15.0/13.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -26,7 +26,7 @@
     double x = 13;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -35,7 +35,7 @@
     double x = -13;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -45,7 +45,7 @@
     double x = 0.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -54,7 +54,7 @@
     double x = 0.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -63,7 +63,7 @@
     double x = +1;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -72,7 +72,7 @@
     double x = -1;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -82,140 +82,140 @@
     double x = NAN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_pos
-    double x = S21_PI;
+    double x = M_PI;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_2_pos
-    double x = S21_PI/2;
+    double x = M_PI/2;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_4_pos
-    double x = S21_PI/4;
+    double x = M_PI/4;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_3_pos
-    double x = S21_PI/3;
+    double x = M_PI/3;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_6_pos
-    double x = S21_PI/3;
+    double x = M_PI/3;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pos_2_pi
-    double x = 2 * S21_PI;
+    double x = 2 * M_PI;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_neg
-    double x = -S21_PI;
+    double x = -M_PI;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_2_neg
-    double x = -S21_PI/2;
+    double x = -M_PI/2;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_4_neg
-    double x = -S21_PI/4;
+    double x = -M_PI/4;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_3_neg
-    double x = -S21_PI/3;
+    double x = -M_PI/3;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_6_neg
-    double x = -S21_PI/3;
+    double x = -M_PI/3;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test neg_2_pi
-    double x = 2 * -S21_PI;
+    double x = 2 * -M_PI;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test big_integral_pi
-    double x = 999 * 17 * S21_PI;
+    double x = 999 * 17 * M_PI;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test big_pi
-    double x = 999 * 17 * S21_PI / 11;
+    double x = 999 * 17 * M_PI / 11;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -224,7 +224,7 @@
     double x = INT_MAX;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -233,7 +233,7 @@
     double x = INT_MIN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -243,7 +243,7 @@
     double x = FLT_MIN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -252,7 +252,7 @@
     double x = DBL_MIN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -261,7 +261,7 @@
     double x = FLT_MAX;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -270,7 +270,7 @@
     double x = DBL_MAX;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -279,7 +279,7 @@
     double x = 3322119978.169291;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -288,7 +288,7 @@
     double x = 33221199781.69291;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -297,7 +297,7 @@
     double x = 332211997816.9291;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -306,7 +306,7 @@
     double x = 3322119978169.291;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -315,7 +315,7 @@
     double x = 33221199781692.91;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -324,7 +324,7 @@
     double x = 332211997816929.1;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -333,7 +333,7 @@
     double x = 3322119978169291.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -342,7 +342,7 @@
     double x = 9999999999999999.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -351,7 +351,7 @@
     double x = INFINITY;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq(exp, res);
 
@@ -360,7 +360,7 @@
     double x = -INFINITY;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -370,7 +370,7 @@
     double x = 810293646;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);
 
@@ -379,7 +379,7 @@
     double x = -810293646;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -389,16 +389,16 @@
     double x = 17;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);
 
 
 #test double_one
-    double x = 1.0L;
+    double x = 1.0;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);
 
@@ -407,7 +407,7 @@
     double x = 1.0L + DBL_MIN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);
 
@@ -416,6 +416,6 @@
     double x = 1.0L - DBL_MIN;
     
     double exp = log(x);
-    double res = s21_log(x);
+    double res = (double)s21_log(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);

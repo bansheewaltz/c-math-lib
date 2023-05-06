@@ -7,7 +7,7 @@
     double x = 15.0/13.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
     
@@ -16,7 +16,7 @@
     double x = -15.0/13.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -25,7 +25,7 @@
     double x = 0.00017/0.13;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -34,7 +34,7 @@
     double x = -0.00017/0.13;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -43,7 +43,7 @@
     double x = 13.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -52,7 +52,7 @@
     double x = -13.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -61,7 +61,7 @@
     double x = 0.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -70,7 +70,7 @@
     double x = -0.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -79,7 +79,7 @@
     double x = +1.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -88,7 +88,7 @@
     double x = -1.0;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -97,134 +97,134 @@
     double x = NAN;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
 
 
 #test pi_pos
-    double x = S21_PI;
+    double x = M_PI;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_2_pos
-    double x = S21_PI/2;
+    double x = M_PI/2;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_4_pos
-    double x = S21_PI/4;
+    double x = M_PI/4;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_3_pos
-    double x = S21_PI/3;
+    double x = M_PI/3;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_6_pos
-    double x = S21_PI/6;
+    double x = M_PI/6;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pos_2_pi
-    double x = 2 * S21_PI;
+    double x = 2 * M_PI;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_neg
-    double x = -S21_PI;
+    double x = -M_PI;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_2_neg
-    double x = -S21_PI/2;
+    double x = -M_PI/2;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_4_neg
-    double x = -S21_PI/4;
+    double x = -M_PI/4;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_3_neg
-    double x = -S21_PI/3;
+    double x = -M_PI/3;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test pi_6_neg
-    double x = -S21_PI/6;
+    double x = -M_PI/6;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test neg_2_pi
-    double x = 2 * -S21_PI;
+    double x = 2 * -M_PI;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test big_integral_pi
-    double x = 999 * 17 * S21_PI;
+    double x = 999 * 17 * M_PI;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
 #test big_pi
-    double x = 999 * 17 * S21_PI / 11;
+    double x = 999 * 17 * M_PI / 11;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -233,7 +233,7 @@
     double x = INT_MAX;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -242,7 +242,7 @@
     double x = INT_MIN;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
 
@@ -251,7 +251,7 @@
     double x = FLT_MIN;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
@@ -261,7 +261,7 @@
     double x = DBL_MIN;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 */
@@ -271,7 +271,7 @@
     double x = FLT_MAX;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
 
@@ -281,7 +281,7 @@
     double x = DBL_MAX;
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
 */
@@ -291,7 +291,7 @@
     double x = -1.0 + _i * (2.0 / 17);
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);
 
@@ -300,6 +300,6 @@
     double x = -1e16 + _i * (2e16 / 127);
     
     double exp = atan(x);
-    double res = s21_atan(x);
+    double res = (double)s21_atan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);

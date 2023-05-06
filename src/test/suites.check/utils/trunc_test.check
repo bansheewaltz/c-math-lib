@@ -3,45 +3,45 @@
 
 #suite trunc
 #test arbitrary_positive
-    double x = 15.l/13.l;
+    double x = 15.0/13.0;
     
-    long double exp = trunc(x);
-    long double res = s21_trunc(x);
+    double exp = trunc(x);
+    double res = (double)s21_trunc(x);
     
     ck_assert_ldouble_eq(exp, res);
 
 
 #test arbitrary_negative
-    double x = -15.l/13.l;
+    double x = -15.0/13.0;
     
-    long double exp = trunc(x);
-    long double res = s21_trunc(x);
+    double exp = trunc(x);
+    double res = (double)s21_trunc(x);
     
     ck_assert_ldouble_eq(exp, res);
 
 
 #test zero
-    double x = 0.l;
+    double x = 0.0;
     
-    long double exp = trunc(x);
-    long double res = s21_trunc(x);
+    double exp = trunc(x);
+    double res = (double)s21_trunc(x);
     
     ck_assert_ldouble_eq(exp, res);
 
 
 #test max_ldbl
-    double x = LDBL_MAX;
+    double x = DBL_MAX;
     
-    long double exp = trunc(x);
-    long double res = s21_trunc(x);
+    double exp = trunc(x);
+    double res = (double)s21_trunc(x);
     
     ck_assert_ldouble_eq(exp, res);
 
 
 #test min_ldbl
-    double x = LDBL_MIN;
+    double x = DBL_MIN;
     
-    long double exp = trunc(x);
-    long double res = s21_trunc(x);
+    double exp = trunc(x);
+    double res = (double)s21_trunc(x);
     
     ck_assert_ldouble_eq(exp, res);
