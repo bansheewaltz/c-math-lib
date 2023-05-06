@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 long double s21_factorial(int x) {
   if (x < 0) {
     return 0;
@@ -6,5 +8,10 @@ long double s21_factorial(int x) {
     return 1;
   }
 
-  return (long double)x * s21_factorial(x - 1);
+  long double res = 1.0L;
+  for (size_t i = 0; i <= (size_t)x; ++i) {
+    res *= (long double)i;
+  }
+
+  return res;
 }

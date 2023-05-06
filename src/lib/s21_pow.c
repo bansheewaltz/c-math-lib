@@ -28,7 +28,7 @@ long double s21_pow(double base, double exp) {
 bool are_theese_boundary_values(double base, double exp, long double *res) {
   bool values_are_boundary = true;
 
-  if (base != 1.0 && s21_isnan(exp)) {
+  if (base != 1.0 && s21_isnan(exp)) {  // NOLINT
     *res = S21_FP_NAN;
   } else if (base == 1.0 || exp == 0.0) {
     *res = 1.0L;
@@ -54,7 +54,7 @@ bool are_theese_boundary_values(double base, double exp, long double *res) {
 }
 
 bool base_eq_one_neg_case(double exp, long double *res) {
-  if (s21_isinf(exp)) {
+  if (s21_isinf(exp)) {  // NOLINT
     *res = 1.0L;
   } else if (s21_isint(exp) && s21_iseven(exp)) {
     *res = 1.0L;

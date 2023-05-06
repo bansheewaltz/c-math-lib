@@ -1,5 +1,3 @@
-#include <math.h>
-
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 

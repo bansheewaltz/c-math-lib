@@ -1,13 +1,17 @@
 Checks: >
-  clang-analyzer-*,
+  cppcoreguidelines-*,
   clang-diagnostic-*,
+  clang-analyzer-*,
   readability-*,
   portability-*,
   performance-*,
   modernize-*,
+  bugprone-*,
+  hicpp-*,
+  misc-*,
   google-*,
-  cppcoreguidelines-*,
-  -modernize-macro-to-enum
+  -modernize-macro-to-enum,
+  -bugprone-easily-swappable-parameters,
 WarningsAsErrors: true
 FormatStyle: google
 HeaderFilterRegex: >
