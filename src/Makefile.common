@@ -22,7 +22,7 @@ BLD = $(BUILD)/$(CONFIG)# CONFIG is specified in each individual Makefile
 OBJ = $(BLD)/obj
 BIN = $(BLD)/bin
 LIB := $(BUILD)/output/lib
-SCRIPTS := $(TST)/scripts
+SCRIPTS_DIR := $(TST)/scripts
 # project files
 CHKS := $(wildcard $(CHK)/*.check)
 SRCS := $(CHKS:$(CHK)/%_test.check=$(SRC)/s21_%.c)
@@ -64,8 +64,8 @@ DBGFLAGS ?= -g0
 LINTFLAGS = -style=Google
 CFLAGS = $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # special targets and variables
-.SECONDARY:# keeps all intermediate files (otherwise, they are automatically deleted)
-.SUFFIXES:# cleans-up debug info
+.SECONDARY :# keeps all intermediate files (otherwise, they are automatically deleted)
+.SUFFIXES :# cleans-up debug info
 # .DELETE_ON_ERROR:# deletes target-files that caused an error during the build
 .DEFAULT_GOAL := all
 MAKEFLAGS += --no-print-directory

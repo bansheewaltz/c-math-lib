@@ -120,8 +120,8 @@ container:
 ifeq (, $(shell which docker))
 	$(error "docker" should be installed)
 endif
-	$(MAKE) clean_build
-	bash $(SCRIPTS)/run_docker_image.sh
+	$(MAKE) fclean
+	bash $(SCRIPTS_DIR)/run_docker_image.sh
 
 .PHONY: brew
 brew:

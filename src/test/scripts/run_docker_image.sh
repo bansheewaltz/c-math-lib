@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# set colors
+# set prompt's colors
 CLR="\033[38;5;117m"
 RST="\033[0m"
 
-# start docker if is not running yet
-if ! docker ps >/dev/null; then
+# start docker if it's not running yet
+if ! docker ps 2>&1 >/dev/null; then
   if [ "$OS" = 'macOS' ]; then
-    echo "Starting Docker app..."
+    echo "Starting Docker app... Delay is 17 sec"
     open -a Docker
-    sleep 10
+    sleep 17
   else
-    echo "you should run Docker first"
+    echo "Error: you should start Docker first"
     exit 0
   fi
 fi
@@ -23,24 +23,28 @@ else
   image_os="$image"
 fi
 
-container_name="dondarri.${image_os}-${PROJNAME}"
-# run existing container or build a new one otherwise
-if [ "$(docker ps -a -q -f name=$container_name)" ]; then
-  docker start -i $container_name
-else
-  dockerfile="Dockerfile.$image_os"
-  image="dondarri/$image_os"
-  prompt="$CLR$image_os@container$RST:\W$ "
-  command="echo \"export PS1='$prompt'\" >> ~/.bashrc && bash"
+container_name="dondarri.${image_os}-temp"
+docker rm -f $container_name 2> /dev/null
+dockerfile="Dockerfile.$image_os"
+image="dondarri/$image_os"
+prompt="$CLR$image_os@container$RST:\W$ "
+command="echo \"export PS1='$prompt'\" >> ~/.bashrc && bash"
 
-  docker build -t $image -f $SCRIPTS/$dockerfile .
-  docker run -it \
-    --name "$container_name" \
-    -e PS1="$prompt" \
-    -v $PWD:/usr/project \
-    -w /usr/project \
-    $image \
-    bash -c "$command"
-fi
+docker build -t $image -f $SCRIPTS_DIR/$dockerfile .
+# docker build -t $image -f ${TEST_DIR}/$dockerfile . --platform linux/x86_64
+# docker run --platform linux/x86_64
+docker run -it \
+  --name "$container_name" \
+  -e PS1="$prompt" \
+  -v $PWD/../:/usr/project \
+  -w /usr/project/src \
+  $image \
+  bash -c "$command"
 
-make clean_build
+docker rm $container_name > /dev/null
+echo "docker: the used container has been deleted"
+# docker rmi $image > /dev/null
+# echo "docker: the used image has been removed"
+# docker builder prune -f > /dev/null
+# echo "docker: the build cache has been removed"
+make fclean
