@@ -16,7 +16,7 @@ ifeq ($(OS), Alpine)
 endif
 # CFLAGS ?= $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # Makefile search paths
-vpath %.c $(SRC) $(UTL)
+vpath %.c $(SRC) $(UTL) $(SRC)/ld_versions
 vpath lib%.a $(LIB)
 export
 
@@ -109,7 +109,7 @@ linter_check linter_fix:
 
 .PHONY: tidy
 tidy:
-	clang-tidy $(shell find . -type f -name '*.c') -- -Ilib/headers -Iinclude
+	clang-tidy $(shell find . -type f -name '*.c') -- -I$(INC) -I$(HDR)
 
 .PHONY: miniverter
 miniverter: fclean

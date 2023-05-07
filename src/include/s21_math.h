@@ -5,7 +5,7 @@
 
 #define S21_FP_MAX LDBL_MAX
 #define S21_FP_MIN LDBL_MIN
-#define S21_EPSILON LDBL_EPSILON
+#define S21_EPSILON 1e-16
 
 #define S21_FP_PINF (1.0 / 0.0)
 #define S21_FP_NINF (-1.0 / 0.0)

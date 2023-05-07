@@ -19,6 +19,9 @@ LDLIBS += $(shell pkg-config --libs-only-l check)
 LDFLAGS += $(shell pkg-config --libs-only-L check)
 DBGFLAGS = -g
 COVFLAG := --coverage
+# summary
+TEST_CFLAGS := $(OFLAG) $(DBGFLAGS) -I$(INC) -I$(T_INC) $(DEFINES) $(STDFLAG) $(shell pkg-config --cflags check) $(WFLAGS)
+SOURCE_CFLAGS := $(OFLAG) $(DBGFLAGS) -I$(HDR) -I$(INC) -I$(T_INC) $(DEFINES) $(COVFLAG) $(STDFLAG) $(WFLAGS)
 export TST
 
 
@@ -26,8 +29,8 @@ export TST
 test:
 	$(info )
 	$(info *** silently compiling code covered build version for unit testing ***)
-	$(info *** compiler parameters for tests .o files: $(WFLAGS) $(STDFLAG) $(shell pkg-config --cflags check) -I$(INC) -I$(T_INC))
-	$(info *** compiler parameters for functions .o files: $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS))
+	$(info *** compiler parameters for tests .o files: $(TEST_CFLAGS))
+	$(info *** compiler parameters for functions .o files: $(SOURCE_CFLAGS))
 	$(info *** linker parameters: $(COVFLAG) $(LDFLAGS) $(LDLIBS))
 	$(info )
 	$(MAKE) -f Makefile.unit_testing $(T_EXES)
@@ -40,11 +43,11 @@ $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	-./$@ | tee -a $(TST_REPORT_R)
 	mv $(OBJ)/s21_$*.gcda $(COV_INF)
 
-$(OBJ)/s21_%.o: CFLAGS = $(OFLAG) $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(COVFLAG) $(DEFINES) $(INCFLAGS)
+$(OBJ)/s21_%.o: CFLAGS = $(SOURCE_CFLAGS)
 $(OBJ)/s21_%.o: $(SRC)/s21_%.c | $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(OBJ)/%_test.o: CFLAGS = $(DBGFLAGS) $(WFLAGS) $(STDFLAG) $(shell pkg-config --cflags check) -I$(INC) -I$(T_INC)
+$(OBJ)/%_test.o: CFLAGS = $(TEST_CFLAGS)
 $(OBJ)/%_test.o: $(SRC_B)/%_test.c | $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 

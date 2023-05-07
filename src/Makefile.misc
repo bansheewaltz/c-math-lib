@@ -3,12 +3,13 @@ include Makefile.common
 ### debugging misc
 .PHONY: testf
 testf: lib     # temporary file for debugging is called temp.c and located in src
-	$(CC) -g -I$(INC) -I$(HDR) temp.c $(LIBNAME).a -o temp
+	$(CC) -g -I$(INC) -I$(HDR) temp.c $(LIBNAME).a -lm -o temp
 	./temp
 
 .PHONY: info
 info:          # shows desired variable's value
 	@echo $(OBJS)
+	@echo $(DEFINES)
 
 .PHONY: tclean # temp files clean
 tclean:
