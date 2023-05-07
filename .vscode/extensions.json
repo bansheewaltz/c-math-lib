@@ -5,8 +5,12 @@
 	"recommendations": [
 		"vadimcn.vscode-lldb",
 		"ms-vscode.cpptools",
-		"ms-vscode.hexeditor"
+		"ms-vscode-remote.remote-containers",
+		"ms-azuretools.vscode-docker"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": []
+	"unwantedRecommendations": [
+		"ms-vscode.cpptools-extension-pack",
+		"ms-vscode.makefile-tools",
+	]
 }
