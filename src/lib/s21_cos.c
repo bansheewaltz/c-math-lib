@@ -4,8 +4,11 @@
 
 // through Taylor series
 long double s21_cos(double x) {
-  if (s21_isnan(x) || s21_isinf(x)) {
-    return x;
+  if (s21_isnan(x)) {
+    return S21_FP_NAN;
+  }
+  if (s21_isinf(x)) {
+    return S21_FP_MAX;
   }
 
   long double inp = s21_trig_range_reduction((long double)x);

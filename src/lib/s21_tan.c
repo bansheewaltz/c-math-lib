@@ -2,7 +2,10 @@
 #include "s21_math.h"
 
 long double s21_tan(double x) {
-  if (s21_isnan(x) || s21_isinf(x)) {
+  if (s21_isnan(x)) {
+    return S21_FP_NAN;
+  }
+  if (s21_isinf(x)) {
     return S21_FP_NAN;
   }
 

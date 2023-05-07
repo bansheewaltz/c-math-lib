@@ -4,7 +4,10 @@
 
 // through Taylor series
 long double s21_sin(double x) {
-  if (s21_isnan(x) || s21_isinf(x)) {
+  if (s21_isnan(x)) {
+    return S21_FP_NAN;
+  }
+  if (s21_isinf(x)) {
     return S21_FP_NAN;
   }
 
