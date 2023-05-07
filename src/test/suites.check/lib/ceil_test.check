@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdint.h>
-
 #include "s21_tests.h"
 
 #suite ceil
@@ -182,6 +179,34 @@
     double res = (double)s21_ceil(x);
     
     ck_assert_double_eq(exp, res);
+
+
+#test inf_pos
+    double x = INFINITY;
+    
+    double exp = ceil(x);
+    double res = (double)s21_ceil(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test inf_neg
+    double x = -INFINITY;
+    
+    double exp = ceil(x);
+    double res = (double)s21_ceil(x);
+    
+    ck_assert_double_eq(exp, res);
+
+
+#test not_a_number
+    double x = NAN;
+    
+    double exp = ceil(x);
+    double res = (double)s21_ceil(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
 
 
 #test-loop(0, 320) iteration
