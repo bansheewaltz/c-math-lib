@@ -171,7 +171,7 @@
 
 
 #test sin_pi_4_pos
-    double x = sin(M_PI / 4.0);
+    double x = sin(M_PI_4);
     
     double exp = asin(x);
     double res = (double)s21_asin(x);
