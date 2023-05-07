@@ -6,6 +6,7 @@ long double s21_tan(double x) {
     return S21_FP_NAN;
   }
 
-  x = s21_trig_range_reduction(x);
-  return s21_sin(x) / s21_cos(x);
+  long double inp = s21_trig_range_reduction((long double)x);
+
+  return s21_sin((double)inp) / s21_cos((double)inp);
 }

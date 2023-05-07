@@ -8,13 +8,13 @@ long double s21_cos(double x) {
     return x;
   }
 
-  x = s21_trig_range_reduction(x);
+  long double inp = s21_trig_range_reduction((long double)x);
 
   long double ith_term = 1;  // 1 is the zeroth term
   long double partial_sum = ith_term;
 
   for (int i = 1; s21_fabsl(ith_term) > S21_EPSILON && i < LOOP_LIMIT; ++i) {
-    ith_term = -ith_term * x * x / ((2 * i) * (2 * i - 1));
+    ith_term = -ith_term * inp * inp / ((2 * i) * (2 * i - 1));
     partial_sum += ith_term;
   }
 
