@@ -8,10 +8,10 @@ long double s21_fmod(double x, double y) {
     return x;
   }
   if (x == DBL_MAX && y == DBL_MIN) {
-    return 0;
+    return 0.0L;
   }
 
-  long double quotient = x / y;
+  long double quotient = (long double)x / y;
   long double whole_part = s21_trunc((double)quotient);
   long double result = x - whole_part * y;
 

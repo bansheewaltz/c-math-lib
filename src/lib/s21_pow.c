@@ -31,7 +31,7 @@ bool are_theese_boundary_values(double base, double exp, long double *res) {
   if (base != 1.0 && s21_isnan(exp)) {  // NOLINT
     *res = S21_FP_NAN;
   } else if (base == 1.0 || exp == 0.0) {
-    *res = 1.0L;
+    *res = 1.0L;  // NOLINT
   } else if (base == -1.0) {
     if (base_eq_one_neg_case(exp, res) == false) {
       return false;
@@ -55,9 +55,9 @@ bool are_theese_boundary_values(double base, double exp, long double *res) {
 
 bool base_eq_one_neg_case(double exp, long double *res) {
   if (s21_isinf(exp)) {  // NOLINT
-    *res = 1.0L;
+    *res = 1.0L;         // NOLINT
   } else if (s21_isint(exp) && s21_iseven(exp)) {
-    *res = 1.0L;
+    *res = 1.0L;  // NOLINT
   } else if (s21_isreal(exp)) {
     *res = S21_FP_NAN;
   } else {
