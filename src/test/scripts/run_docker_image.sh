@@ -33,7 +33,7 @@ command="echo \"export PS1='$prompt'\" >> ~/.bashrc && bash"
 docker build -t $image -f $SCRIPTS_DIR/$dockerfile .
 # docker build -t $image -f ${TEST_DIR}/$dockerfile . --platform linux/x86_64
 # docker run --platform linux/x86_64
-docker run -it \
+docker run -it --rm\
   --name "$container_name" \
   -e PS1="$prompt" \
   -v $PWD/../:/usr/project \
@@ -41,7 +41,7 @@ docker run -it \
   $image \
   bash -c "$command"
 
-docker rm $container_name > /dev/null
+# docker rm $container_name > /dev/null
 echo "docker: the used container has been deleted"
 # docker rmi $image > /dev/null
 # echo "docker: the used image has been removed"
