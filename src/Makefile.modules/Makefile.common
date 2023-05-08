@@ -11,6 +11,8 @@ SHELL := /bin/bash
 MEMCHECK := valgrind
 LIBS := check
 UTILS := pkg-config
+export
+include $(MODULES_DIR)/Makefile.autoconfig
 # paths
 SRC := lib
 INC := include# public header
@@ -32,26 +34,6 @@ OBJS := $(CHKS:$(CHK)/%_test.check=$(OBJ)/s21_%.o) $(UTLS:$(UTL)/%.c=$(OBJ)/%.o)
 		$(SRCSL:$(SRC)/ld_versions/%.c=$(OBJ)/%.o)
 INCS := $(INC) $(HDR)
 HDRS := $(shell find $(INCS) -name *.h)
-# specifications detection
-KERNEL := $(shell uname -s)
-DISTRO := $(shell cat /etc/os-release 2>/dev/null | grep -o '^NAME="[^"]*' | sed 's/NAME="//g')
-ARCHITECTURE := $(shell uname -m)
-OS :=
-ifeq ($(KERNEL), Darwin)
-	OS := macOS
-endif
-ifeq ($(KERNEL), Linux)
-	ifeq ($(DISTRO), Ubuntu)
-		OS := Ubuntu
-	endif
-	ifeq ($(DISTRO), Alpine Linux)
-		OS := Alpine
-	endif
-endif
-PACKAGES := $(SHELL) $(UTILS) $(CC) $(AR) $(LINT) $(LIBS) $(COV)
-ifeq ($(KERNEL), Linux)
-	PACKAGES += $(MEMCHECK)
-endif
 # filenames specification
 LIBNAME := $(PROJNAME)
 # compilation parameters
@@ -68,15 +50,3 @@ ifeq ($(KERNEL), Linux)
 	DEFINES = -D_DEFAULT_SOURCE
 endif
 CFLAGS = $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(DEFINES) $(INCFLAGS) $(WFLAGS)
-# special targets and variables
-.SECONDARY :# keeps all intermediate files (otherwise, they are automatically deleted)
-.SUFFIXES :# cleans-up debug info
-# .DELETE_ON_ERROR:# deletes target-files that caused an error during the build
-.DEFAULT_GOAL := all
-MAKEFLAGS += --no-print-directory
-MAKEFLAGS += --output-sync=target
-# macros
-RM := rm -rf
-MK := mkdir -p
-dir_guard = @$(MK) $(@D)
-format_the_file = $(LINT) -i $(LINTFLAGS) $@

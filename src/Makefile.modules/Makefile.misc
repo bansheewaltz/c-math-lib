@@ -1,4 +1,4 @@
-include Makefile.common
+include $(MODULES_DIR)/Makefile.common
 
 ### debugging misc
 .PHONY: testf
@@ -8,8 +8,10 @@ testf: lib     # temporary file for debugging is called temp.c and located in sr
 
 .PHONY: info
 info:          # shows desired variable's value
-	@echo $(OBJS)
-	@echo $(DEFINES)
+	@echo $(CLANG-FORMAT)
+	@echo $(LIB_CHECK)
+	@echo $(GCC)
+# @echo $(OBJS)
 
 .PHONY: tclean # temp files clean
 tclean:

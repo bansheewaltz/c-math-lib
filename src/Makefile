@@ -1,7 +1,9 @@
 CONFIG ?= debug
 ### many variables are stored in a shared makefile
-include Makefile.common
-include Makefile.misc
+MODULES_DIR := Makefile.modules
+export MODULES_DIR
+include $(MODULES_DIR)/Makefile.common
+include $(MODULES_DIR)/Makefile.misc
 # build parameters
 ifeq ($(CONFIG), debug)
 	DBGFLAGS := -g
@@ -23,16 +25,16 @@ export
 
 .PHONY: all
 all:
-ifeq ($(OS), )
+ifndef OS
 	$(warning warning: it looks like this Makefile is not fully adapted to your OS)
 endif
 	$(MAKE) lib
-ifneq ($(shell pkg-config --libs check 2> /dev/null), )
+ifdef LIB_CHECK
 	$(MAKE) test
-ifneq ($(shell which gcovr 2> /dev/null), )
+ifdef GCOVR
 	$(MAKE) gcov_report
 endif
-ifneq ($(shell which valgrind), )
+ifdef VALGRIND
 	$(MAKE) memcheck
 endif
 endif
@@ -50,7 +52,7 @@ $(OBJ):
 .PHONY: test ftest gcov_report show
 ftest: fclean test
 test gcov_report show: lib
-	@$(MAKE) -s -f Makefile.unit_testing $@
+	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.unit_testing $@
 
 .PHONY: clean
 clean:
@@ -92,14 +94,14 @@ memcheck: lib
 ifeq (, $(shell which valgrind))
 	$(error "valgrind" should be installed)
 endif
-	@$(MAKE) -s -f Makefile.memcheck $@
+	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.memcheck $@
 
 .PHONY: asan
 asan: lib
 ifeq ($(ARCHITECTURE), arm64)
 	$(error adress sanitizers work only on x86-64 at the time)
 endif
-	@$(MAKE) -s -f Makefile.asan $@
+	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.asan $@
 
 .PHONY: linter_check linter_fix
 linter_fix: LINTFLAGS := -i $(LINTFLAGS)

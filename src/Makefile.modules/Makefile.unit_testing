@@ -1,6 +1,6 @@
 CONFIG := unit_testing
 ### some variables and targets are stored in a shared makefile
-include Makefile.common
+include $(MODULES_DIR)/Makefile.common
 # tools specification
 COV ?= gcovr
 # paths
@@ -15,7 +15,7 @@ COV_REPORT := index.html
 T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
 T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
 # build parameters
-LDLIBS += $(shell pkg-config --libs-only-l check)
+LDLIBS  += $(shell pkg-config --libs-only-l check)
 LDFLAGS += $(shell pkg-config --libs-only-L check)
 DBGFLAGS = -g
 COVFLAG := --coverage
@@ -33,7 +33,7 @@ test:
 	$(info *** compiler parameters for functions .o files: $(SOURCE_CFLAGS))
 	$(info *** linker parameters: $(COVFLAG) $(LDFLAGS) $(LDLIBS))
 	$(info )
-	$(MAKE) -f Makefile.unit_testing $(T_EXES)
+	$(MAKE) -f $(MODULES_DIR)/Makefile.unit_testing $(T_EXES)
 
 $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	$(dir_guard)
