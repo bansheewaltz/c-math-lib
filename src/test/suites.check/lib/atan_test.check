@@ -1,6 +1,4 @@
 #include "s21_tests.h"
-#include <stdio.h>
-#include <math.h>
 
 #suite atan
 #test arb_gt_one_pos

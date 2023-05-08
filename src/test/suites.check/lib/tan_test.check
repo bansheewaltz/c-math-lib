@@ -1,6 +1,4 @@
 #include "s21_tests.h"
-#include <stdio.h>
-#include <math.h>
 
 #suite tan
 #test arb_pos

@@ -1,6 +1,4 @@
 #include "s21_tests.h"
-#include <stdio.h>
-#include <math.h>
 
 #suite sqrt
 #test arb_pos
