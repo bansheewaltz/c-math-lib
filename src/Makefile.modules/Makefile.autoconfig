@@ -21,29 +21,29 @@ endif
 ### Packages' presence checks:
 
 # shell
-BASH         := $(call IS_INSTALLED, bash)
+BASH         ?= $(call IS_INSTALLED, bash)
 # static analyzers
-CPPCHECK     := $(call IS_INSTALLED, cppcheck)
-CLANG-TIDY   := $(call IS_INSTALLED, clang-tidy)
+CPPCHECK     ?= $(call IS_INSTALLED, cppcheck)
+CLANG-TIDY   ?= $(call IS_INSTALLED, clang-tidy)
 # virtualization
-DOCKER       := $(call IS_INSTALLED, docker)
+DOCKER       ?= $(call IS_INSTALLED, docker)
 # compilers
-GCC          := $(call IS_INSTALLED, gcc)
-CLANG        := $(call IS_INSTALLED, clang)
+GCC          ?= $(call IS_INSTALLED, gcc)
+CLANG        ?= $(call IS_INSTALLED, clang)
 # code-coverage
-GCOV         := $(call IS_INSTALLED, gcov)
-LCOV         := $(call IS_INSTALLED, lcov)
-GCOVR        := $(call IS_INSTALLED, gcovr)
+GCOV         ?= $(call IS_INSTALLED, gcov)
+LCOV         ?= $(call IS_INSTALLED, lcov)
+GCOVR        ?= $(call IS_INSTALLED, gcovr)
 # dynamic analyzers
-VALGRIND     := $(call IS_INSTALLED, valgrind)
-LEAKS        := $(call IS_INSTALLED, valgrind)
+VALGRIND     ?= $(call IS_INSTALLED, valgrind)
+LEAKS        ?= $(call IS_INSTALLED, valgrind)
 # linters
-CLANG-FORMAT := $(call IS_INSTALLED, clang-format)
+CLANG-FORMAT ?= $(call IS_INSTALLED, clang-format)
 # utils
-PKG-CONFIG   := $(call IS_INSTALLED, pkg-config)
+PKG-CONFIG   ?= $(call IS_INSTALLED, pkg-config)
 
 # libs
-LIB_CHECK    := $(call IS_INSTALLED_LIB, check)
+LIB_CHECK    ?= $(call IS_INSTALLED_LIB, check)
 
 #=============================================================================
 ### Special targets and variables:
