@@ -5,15 +5,15 @@ export MODULES_DIR
 include $(MODULES_DIR)/Makefile.common
 include $(MODULES_DIR)/Makefile.misc
 # build parameters
-ifeq ($(CONFIG), debug)
+ifeq "$(CONFIG)" "debug"
 	DBGFLAGS := -g
 	CFLAGS := $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 endif
-ifeq ($(CONFIG), release)
+ifeq "$(CONFIG)" "release"
 	OFLAG := -O2
 	CFLAGS := $(OFLAG) $(INCFLAGS)
 endif
-ifeq ($(OS), Alpine)
+ifeq "$(OS)" "Alpine"
 	CFLAGS := $(DBGFLAGS) $(INCFLAGS)
 endif
 # CFLAGS ?= $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
@@ -76,10 +76,10 @@ check:
 
 .PHONY: prep
 prep:
-ifeq ($(KERNEL), Linux)
+ifeq "$(KERNEL)" "Linux"
 	sudo apt install -y pkg-config check gcovr
 endif
-ifeq ($(KERNEL), Darwin)
+ifeq "$(KERNEL)" "Darwin"
 	yes | brew install pkg-config check gcovr
 endif
 
@@ -91,14 +91,14 @@ libs21_math.a: s21_math.a
 
 .PHONY: memcheck
 memcheck: lib
-ifeq (, $(shell which valgrind))
+ifndef VALGRIND
 	$(error "valgrind" should be installed)
 endif
 	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.memcheck $@
 
 .PHONY: asan
 asan: lib
-ifeq ($(ARCHITECTURE), arm64)
+ifeq "$(ARCHITECTURE)" "arm64"
 	$(error adress sanitizers work only on x86-64 at the time)
 endif
 	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.asan $@
@@ -119,7 +119,7 @@ miniverter: fclean
 
 .PHONY: container
 container:
-ifeq (, $(shell which docker))
+ifndef DOCKER
 	$(error "docker" should be installed)
 endif
 	$(MAKE) fclean
