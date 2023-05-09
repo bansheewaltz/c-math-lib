@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
             "request": "launch",
-            "name": "Debug",
-            "program": "src/temp",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}"
         },
@@ -13,10 +13,10 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/src/temp",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/src",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
