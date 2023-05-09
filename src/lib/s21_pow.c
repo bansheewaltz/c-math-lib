@@ -41,9 +41,7 @@ bool are_theese_boundary_values(double base, double exp, long double *res) {
       return false;
     }
   } else if (base == S21_FP_NINF) {
-    if (base_eq_inf_neg_case(exp, res) == false) {
-      return false;
-    }
+    base_eq_inf_neg_case(exp, res);
   } else if (s21_isnegative(base) && s21_isreal(exp)) {
     *res = S21_FP_NAN;
   } else {

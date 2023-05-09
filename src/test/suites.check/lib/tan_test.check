@@ -337,3 +337,23 @@
     double res = (double)s21_tan(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
+
+
+#test inf_pos
+    double x = INFINITY;
+    
+    double exp = tan(x);
+    double res = (double)s21_tan(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);
+    
+
+#test inf_neg
+    double x = -INFINITY;
+    
+    double exp = tan(x);
+    double res = (double)s21_tan(x);
+    
+    ck_assert_ldouble_nan(exp);
+    ck_assert_ldouble_nan(res);

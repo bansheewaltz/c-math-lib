@@ -8,7 +8,7 @@ long double s21_cos(double x) {
     return S21_FP_NAN;
   }
   if (s21_isinf(x)) {
-    return S21_FP_MAX;
+    return S21_FP_NAN;
   }
 
   long double inp = s21_trig_range_reduction((long double)x);

@@ -169,7 +169,7 @@
 
 
 #test cos_pi_4_pos
-    double x = cos(M_PI / 4.0);
+    double x = cos(M_PI_4);
     
     double exp = acos(x);
     double res = (double)s21_acos(x);
@@ -222,8 +222,8 @@
     ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
 
 
-#test cos_pi_4_neg
-    double x = cos(-M_PI / 4.0);
+#test cos_3_pi_4
+    double x = cos(3 * M_PI_4);
     
     double exp = acos(x);
     double res = (double)s21_acos(x);

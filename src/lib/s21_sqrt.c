@@ -1,4 +1,5 @@
 #include "s21_fp_utils.h"
+#include "s21_fp_utilsl.h"
 #include "s21_math.h"
 
 long double s21_sqrt(double x) {
@@ -8,7 +9,7 @@ long double s21_sqrt(double x) {
   if (x == 0.0) {
     return 0.0;
   }
-  if (x == S21_FP_PINF) {
+  if (s21_ispinf(x)) {
     return S21_FP_PINF;
   }
 
@@ -16,7 +17,7 @@ long double s21_sqrt(double x) {
   long double prev_value = 1;
 
   if (x > 0) {
-    while (s21_fabs((double)(intermediate_value - prev_value)) > S21_EPSILON) {
+    while (s21_fabsl(intermediate_value - prev_value) > S21_EPSILON) {
       intermediate_value = prev_value;
       prev_value = (prev_value + (x / prev_value)) / 2;
     }
