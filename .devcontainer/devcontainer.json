@@ -1,29 +1,35 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// For format details, see https://aka.ms/devcontainer.json
 {
-	"name": "Ubuntu",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": {
-		"dockerfile": "Dockerfile.dev"
-	},
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		// "ghcr.io/devcontainers-contrib/features/gdbgui:2": {},
-	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [],
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"name": "s21_math",
+	"image": "docker.io/dondarri/school21-c-dev-ubuntu:excessive",
+	// /// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "build": {
+	// 	"dockerfile": "Dockerfile"
+	// },
+	// /// Features to add to the dev container. More info: https://containers.dev/features.
+	"runArgs": [
+		// "--platform=linux/arm64"
+		"--platform=linux/amd64"
+	],
+	// /// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root",
-	// Configure tool-specific properties.
+	"features": {},
+	// /// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
+			// "settings": {
+			// 	// "extensions.ignoreRecommendations": true,
+			// 	"extensions.verifySignature": false
+			// },
 			"extensions": [
 				"ms-vscode.cpptools",
-				"vadimcn.vscode-lldb"
+				"vadimcn.vscode-lldb",
+				"eamodio.gitlens"
 			]
 		}
 	},
-	"runArgs": [
-		"--platform=linux/amd64"
-	],
-	"postStartCommand": "cd src && make fclean && bash"
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"workspaceFolder": "/workspace",
+	"postAttachCommand": "cd src && make fclean",
+	"shutdownAction": "stopContainer"
 }
