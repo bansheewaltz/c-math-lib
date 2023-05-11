@@ -1,6 +1,6 @@
 CONFIG := unit_testing
 ### some variables and targets are stored in a shared makefile
-include $(MODULES_DIR)/Makefile.common
+include Makefile.common
 # tools specification
 COV ?= gcovr
 # paths
@@ -33,7 +33,7 @@ test:
 	$(info *** compiler parameters for functions .o files: $(SOURCE_CFLAGS))
 	$(info *** linker parameters: $(COVFLAG) $(LDFLAGS) $(LDLIBS))
 	$(info )
-	$(MAKE) -f $(MODULES_DIR)/Makefile.unit_testing $(T_EXES)
+	$(MAKE) -f Makefile.unit_testing $(T_EXES)
 
 $(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	$(dir_guard)

@@ -1,6 +1,6 @@
 CONFIG := memcheck
 ### some variables and targets are stored in a shared makefile
-include $(MODULES_DIR)/Makefile.common
+include Makefile.common
 # tools specification
 MEMCHECK ?= valgrind
 # paths
@@ -31,7 +31,7 @@ memcheck:
 	$(info *** silently compiling build version for checking memory usage ***)
 	$(info *** with the parameters: $(CFLAGS) $(LDFLAGS) $(LDLIBS))
 	$(info *** executing through $(MEMCHECK) with the parameters: $(MEMFLAGS))
-	$(MAKE) -f $(MODULES_DIR)/Makefile.memcheck $(T_EXES)
+	$(MAKE) -f Makefile.memcheck $(T_EXES)
 	echo -e "\n\nyou can check saved $(MEMCHECK) logs at $(TST_REPORT_R)"
 
 $(BIN)/%_test: $(SRC)/s21_%.c $(SRC_B)/%_test.c | $(REPORTS)

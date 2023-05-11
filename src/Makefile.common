@@ -12,7 +12,7 @@ MEMCHECK := valgrind
 LIBS := check
 UTILS := pkg-config
 export
-include $(MODULES_DIR)/Makefile.autoconfig
+include Makefile.autoconfig
 # paths
 SRC := lib
 INC := include# public header

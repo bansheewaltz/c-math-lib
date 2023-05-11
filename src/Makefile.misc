@@ -1,4 +1,4 @@
-include $(MODULES_DIR)/Makefile.common
+include Makefile.common
 
 ### debugging misc
 .PHONY: testf

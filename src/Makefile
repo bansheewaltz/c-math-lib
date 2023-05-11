@@ -2,8 +2,8 @@ CONFIG ?= debug
 ### many variables are stored in a shared makefile
 MODULES_DIR := Makefile.modules
 export MODULES_DIR
-include $(MODULES_DIR)/Makefile.common
-include $(MODULES_DIR)/Makefile.misc
+include Makefile.common
+include Makefile.misc
 # build parameters
 ifeq "$(CONFIG)" "debug"
 	DBGFLAGS := -g
@@ -52,7 +52,7 @@ $(OBJ):
 .PHONY: test ftest gcov_report show
 ftest: fclean test
 test gcov_report show: lib
-	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.unit_testing $@
+	@$(MAKE) -s -f Makefile.unit_testing $@
 
 .PHONY: clean
 clean:
@@ -94,14 +94,14 @@ memcheck: lib
 ifndef VALGRIND
 	$(error "valgrind" should be installed)
 endif
-	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.memcheck $@
+	@$(MAKE) -s -f Makefile.memcheck $@
 
 .PHONY: asan
 asan: lib
 ifeq "$(ARCHITECTURE)" "arm64"
 	$(error adress sanitizers work only on x86-64 at the time)
 endif
-	@$(MAKE) -s -f $(MODULES_DIR)/Makefile.asan $@
+	@$(MAKE) -s -f Makefile.asan $@
 
 .PHONY: linter_check linter_fix
 linter_fix: LINTFLAGS := -i $(LINTFLAGS)
