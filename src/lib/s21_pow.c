@@ -8,8 +8,15 @@ bool base_eq_inf_neg_case(double exp, long double *res);
 
 long double s21_pow(double base, double exp) {
   long double res = 0;
+
   if (are_theese_boundary_values(base, exp, &res) == true) {
     return res;  // NOLINT
+  }
+  if (exp == -1.0) {
+    return 1.0 / base;
+  }
+  if (exp == +1.0) {
+    return base;
   }
 
   int res_sign = 1;
