@@ -1,6 +1,10 @@
 #include <float.h>
 #include <stdio.h>
 
+#ifdef JUST_PRINT
+#define s21_print_fp_sysinfo main
+#endif
+
 void s21_print_fp_sysinfo(void) {
   puts("");
 
