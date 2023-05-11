@@ -23,7 +23,3 @@ CheckOptions:
     value: ^[abijknxy]$
   - key: readability-identifier-length.IgnoredVariableNames
     value: ^[ab]$
-  - key: readability-magic-numbers.IgnoredFloatingPointValues
-    value: "1.0;1.0L"
-  - key: cppcoreguidelines-avoid-magic-numbers.IgnoredFloatingPointValues
-    value: "1.0;1.0L"
