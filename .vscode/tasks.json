@@ -4,12 +4,11 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "bash",
-            "type": "process",
-            "command": "/bin/bash",
+            "label": "open terminal",
+            "command": "${command:workbench.action.terminal.new}",
             "runOptions": {
-                // "runOn": "folderOpen"
-            }
+                "runOn": "folderOpen"
+            },
         },
     ]
 }
