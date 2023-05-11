@@ -1,8 +1,8 @@
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
-static bool are_theese_boundary_values(double base, double exp,
-                                       long double *res);
+static bool are_these_boundary_values(double base, double exp,
+                                      long double *res);
 static bool base_eq_zero_case(double base, double exp, long double *res);
 static bool base_eq_one_neg_case(double exp, long double *res);
 static bool base_eq_inf_neg_case(double exp, long double *res);
@@ -10,7 +10,7 @@ static bool base_eq_inf_neg_case(double exp, long double *res);
 long double s21_pow(double base, double exp) {
   long double res = 0;
 
-  if (are_theese_boundary_values(base, exp, &res) == true) {
+  if (are_these_boundary_values(base, exp, &res) == true) {
     return res;  // NOLINT
   }
   if (exp == -1.0) {
@@ -33,8 +33,8 @@ long double s21_pow(double base, double exp) {
   return res;
 }
 
-static bool are_theese_boundary_values(double base, double exp,
-                                       long double *res) {
+static bool are_these_boundary_values(double base, double exp,
+                                      long double *res) {
   bool values_are_boundary = true;
 
   if (base != 1.0 && s21_isnan(exp)) {  // NOLINT
