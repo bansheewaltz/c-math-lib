@@ -16,9 +16,15 @@ long double s21_sin(double x) {
   long double ith_term = inp;  // inp is the zeroth term
   long double partial_sum = ith_term;
 
-  for (int i = 1; s21_fabsl(ith_term) > S21_EPSILON && i < LOOP_LIMIT; ++i) {
+  int i = 1;
+  while (s21_fabsl(ith_term) > S21_EPSILON) {
     ith_term = -ith_term * inp * inp / ((2 * i) * (2 * i + 1));
     partial_sum += ith_term;
+
+    ++i;
+    if (i >= LOOP_LIMIT) {
+      break;
+    }
   }
 
   return partial_sum;

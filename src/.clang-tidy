@@ -22,4 +22,4 @@ CheckOptions:
   - key: readability-identifier-length.IgnoredParameterNames
     value: ^[abijknxy]$
   - key: readability-identifier-length.IgnoredVariableNames
-    value: ^[ab]$
+    value: ^[abi]$
