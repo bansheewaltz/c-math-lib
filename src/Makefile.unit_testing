@@ -72,7 +72,7 @@ ifeq (, $(shell which gcovr))
 endif
 	@$(MK) $(COV_REP)
 	gcovr $(COV_INF)
-	gcovr --decisions --html-details --html-self-contained -o $(COV_REP)/$(COV_REPORT) $(COV_INF)
+	gcovr --html-details --html-self-contained -o $(COV_REP)/$(COV_REPORT) $(COV_INF)
 ifeq ($(OS), macOS)
 	# open $(COV_REP)/$(COV_REPORT)
 endif
