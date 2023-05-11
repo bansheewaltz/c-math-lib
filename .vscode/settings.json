@@ -22,4 +22,6 @@
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.vcFormat.newLine.scopeBracesOnSeparateLines": true,
     "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction": false,
+    "terminal.integrated.cwd": "src",
+    "terminal.integrated.showExitAlert": false,
 }
