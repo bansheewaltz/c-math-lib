@@ -16,7 +16,7 @@ ifeq "$(OS)" "Alpine"
 endif
 # CFLAGS ?= $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 # Makefile search paths
-vpath %.c $(SRC) $(UTL) $(SRC)/ld_versions
+vpath %.c $(SRC) $(UTL) $(SRC)/utilsl
 vpath lib%.a $(LIB)
 export
 
