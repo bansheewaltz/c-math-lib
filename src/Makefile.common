@@ -38,7 +38,13 @@ HDRS := $(shell find $(INCS) -name *.h)
 LIBNAME := $(PROJNAME)
 # compilation parameters
 OFLAG ?= -O0
-WFLAGS := -Wall -Werror -Wextra -Wconversion -Wshadow -Wpedantic -pedantic-errors
+WFLAGS := -Wall \
+		  -Werror \
+		  -Wextra \
+		  -Wconversion \
+		  -Wshadow \
+		  -Wpedantic \
+		  -pedantic-errors
 LDLIBS := -l$(LIBNAME)
 LDFLAGS := -L$(LIB)
 STDFLAG := -std=c11
@@ -46,7 +52,7 @@ INCFLAGS := $(INCS:%=-I%)
 DBGFLAGS ?= -g0
 LINTFLAGS = -style=Google
 DEFINES ?=
-ifeq ($(KERNEL), Linux)
+ifeq "$(KERNEL)" "Linux"
 	DEFINES = -D_DEFAULT_SOURCE
 endif
 CFLAGS = $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(DEFINES) $(INCFLAGS) $(WFLAGS)
