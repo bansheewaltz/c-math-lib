@@ -49,10 +49,10 @@
 #test int_min_pos
     int x = INT_MIN; 
     
-    int exp = abs(x);
-    int res = s21_abs(x);
+    unsigned int exp = (unsigned int)abs(x);
+    unsigned int res = (unsigned int)s21_abs(x);
 
-    ck_assert_int_eq(exp, res);
+    ck_assert_uint_eq(exp, res);
 
 
 #test int_min_neg_minus_one
