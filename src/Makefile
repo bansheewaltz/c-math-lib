@@ -113,7 +113,7 @@ tidy:
 
 .PHONY: miniverter
 miniverter: fclean
-	cd $(SCRIPTS) && bash run_miniverter_test.sh
+	cd $(SCRIPTS_DIR) && bash run_miniverter_test.sh
 
 .PHONY: container
 container:

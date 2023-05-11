@@ -9,4 +9,4 @@ if [[ "$(docker images -q $image_name)" == "" ]]; then
 fi
 docker run --rm $image_name
 
-cd "$root"/src && make clean_build
+cd "$root"/src && make fclean
