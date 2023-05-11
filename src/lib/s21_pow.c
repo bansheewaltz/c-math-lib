@@ -1,10 +1,11 @@
 #include "s21_fp_utils.h"
 #include "s21_math.h"
 
-bool are_theese_boundary_values(double base, double exp, long double *res);
-bool base_eq_zero_case(double base, double exp, long double *res);
-bool base_eq_one_neg_case(double exp, long double *res);
-bool base_eq_inf_neg_case(double exp, long double *res);
+static bool are_theese_boundary_values(double base, double exp,
+                                       long double *res);
+static bool base_eq_zero_case(double base, double exp, long double *res);
+static bool base_eq_one_neg_case(double exp, long double *res);
+static bool base_eq_inf_neg_case(double exp, long double *res);
 
 long double s21_pow(double base, double exp) {
   long double res = 0;
@@ -32,7 +33,8 @@ long double s21_pow(double base, double exp) {
   return res;
 }
 
-bool are_theese_boundary_values(double base, double exp, long double *res) {
+static bool are_theese_boundary_values(double base, double exp,
+                                       long double *res) {
   bool values_are_boundary = true;
 
   if (base != 1.0 && s21_isnan(exp)) {  // NOLINT
@@ -58,7 +60,7 @@ bool are_theese_boundary_values(double base, double exp, long double *res) {
   return values_are_boundary;
 }
 
-bool base_eq_one_neg_case(double exp, long double *res) {
+static bool base_eq_one_neg_case(double exp, long double *res) {
   if (s21_isinf(exp)) {  // NOLINT
     *res = 1.0L;         // NOLINT
   } else if (s21_isint(exp) && s21_iseven(exp)) {
@@ -72,7 +74,7 @@ bool base_eq_one_neg_case(double exp, long double *res) {
   return true;
 }
 
-bool base_eq_zero_case(double base, double exp, long double *res) {
+static bool base_eq_zero_case(double base, double exp, long double *res) {
   if (s21_ispositive(base) && exp < 0) {
     *res = S21_FP_PINF;
   } else if (s21_isnegative(base) && exp < 0) {
@@ -90,7 +92,7 @@ bool base_eq_zero_case(double base, double exp, long double *res) {
   return true;
 }
 
-bool base_eq_inf_neg_case(double exp, long double *res) {
+static bool base_eq_inf_neg_case(double exp, long double *res) {
   if (exp > 0.0) {
     if (s21_isint(exp) && s21_isodd(exp)) {
       *res = S21_FP_NINF;
