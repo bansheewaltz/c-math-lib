@@ -1,0 +1,31 @@
+Running suite(s): abs
+100%: Checks: 7, Failures: 0, Errors: 0
+Running suite(s): acos
+100%: Checks: 1029, Failures: 0, Errors: 0
+Running suite(s): asin
+Running suite(s): asin
+100%: Checks: 1029, Failures: 0, Errors: 0
+Running suite(s): atan
+100%: Checks: 173, Failures: 0, Errors: 0
+Running suite(s): ceil
+100%: Checks: 343, Failures: 0, Errors: 0
+Running suite(s): cos
+100%: Checks: 37, Failures: 0, Errors: 0
+Running suite(s): exp
+100%: Checks: 41, Failures: 0, Errors: 0
+Running suite(s): fabs
+100%: Checks: 343, Failures: 0, Errors: 0
+Running suite(s): floor
+100%: Checks: 343, Failures: 0, Errors: 0
+Running suite(s): fmod
+100%: Checks: 57, Failures: 0, Errors: 0
+Running suite(s): log
+100%: Checks: 45, Failures: 0, Errors: 0
+Running suite(s): pow
+100%: Checks: 271, Failures: 0, Errors: 0
+Running suite(s): sin
+100%: Checks: 37, Failures: 0, Errors: 0
+Running suite(s): sqrt
+100%: Checks: 47, Failures: 0, Errors: 0
+Running suite(s): tan
+100%: Checks: 36, Failures: 0, Errors: 0
