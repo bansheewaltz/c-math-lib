@@ -1,0 +1,225 @@
+==1612== Memcheck, a memory error detector
+==1612== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1612== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1612== Command: ../build/memcheck/bin/abs_test
+==1612== 
+==1612== 
+==1612== HEAP SUMMARY:
+==1612==     in use at exit: 0 bytes in 0 blocks
+==1612==   total heap usage: 158 allocs, 158 frees, 95,571 bytes allocated
+==1612== 
+==1612== All heap blocks were freed -- no leaks are possible
+==1612== 
+==1612== For lists of detected and suppressed errors, rerun with: -s
+==1612== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1644== Memcheck, a memory error detector
+==1644== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1644== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1644== Command: ../build/memcheck/bin/acos_test
+==1644== 
+==1644== 
+==1644== HEAP SUMMARY:
+==1644==     in use at exit: 0 bytes in 0 blocks
+==1644==   total heap usage: 16,563 allocs, 16,563 frees, 13,703,120 bytes allocated
+==1644== 
+==1644== All heap blocks were freed -- no leaks are possible
+==1644== 
+==1644== For lists of detected and suppressed errors, rerun with: -s
+==1644== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1676== Memcheck, a memory error detector
+==1676== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1676== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1676== Command: ../build/memcheck/bin/asin_test
+==1676== 
+==1676== 
+==1676== HEAP SUMMARY:
+==1676==     in use at exit: 0 bytes in 0 blocks
+==1676==   total heap usage: 16,563 allocs, 16,563 frees, 13,703,120 bytes allocated
+==1676== 
+==1676== All heap blocks were freed -- no leaks are possible
+==1676== 
+==1676== For lists of detected and suppressed errors, rerun with: -s
+==1676== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1708== Memcheck, a memory error detector
+==1708== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1708== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1708== Command: ../build/memcheck/bin/atan_test
+==1708== 
+==1708== 
+==1708== HEAP SUMMARY:
+==1708==     in use at exit: 0 bytes in 0 blocks
+==1708==   total heap usage: 2,849 allocs, 2,849 frees, 2,305,348 bytes allocated
+==1708== 
+==1708== All heap blocks were freed -- no leaks are possible
+==1708== 
+==1708== For lists of detected and suppressed errors, rerun with: -s
+==1708== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1740== Memcheck, a memory error detector
+==1740== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1740== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1740== Command: ../build/memcheck/bin/ceil_test
+==1740== 
+==1740== 
+==1740== HEAP SUMMARY:
+==1740==     in use at exit: 0 bytes in 0 blocks
+==1740==   total heap usage: 5,563 allocs, 5,563 frees, 4,567,046 bytes allocated
+==1740== 
+==1740== All heap blocks were freed -- no leaks are possible
+==1740== 
+==1740== For lists of detected and suppressed errors, rerun with: -s
+==1740== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1772== Memcheck, a memory error detector
+==1772== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1772== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1772== Command: ../build/memcheck/bin/cos_test
+==1772== 
+==1772== 
+==1772== HEAP SUMMARY:
+==1772==     in use at exit: 0 bytes in 0 blocks
+==1772==   total heap usage: 708 allocs, 708 frees, 510,563 bytes allocated
+==1772== 
+==1772== All heap blocks were freed -- no leaks are possible
+==1772== 
+==1772== For lists of detected and suppressed errors, rerun with: -s
+==1772== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1804== Memcheck, a memory error detector
+==1804== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1804== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1804== Command: ../build/memcheck/bin/exp_test
+==1804== 
+==1804== 
+==1804== HEAP SUMMARY:
+==1804==     in use at exit: 0 bytes in 0 blocks
+==1804==   total heap usage: 746 allocs, 746 frees, 549,604 bytes allocated
+==1804== 
+==1804== All heap blocks were freed -- no leaks are possible
+==1804== 
+==1804== For lists of detected and suppressed errors, rerun with: -s
+==1804== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1836== Memcheck, a memory error detector
+==1836== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1836== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1836== Command: ../build/memcheck/bin/fabs_test
+==1836== 
+==1836== 
+==1836== HEAP SUMMARY:
+==1836==     in use at exit: 0 bytes in 0 blocks
+==1836==   total heap usage: 5,563 allocs, 5,563 frees, 4,567,046 bytes allocated
+==1836== 
+==1836== All heap blocks were freed -- no leaks are possible
+==1836== 
+==1836== For lists of detected and suppressed errors, rerun with: -s
+==1836== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1868== Memcheck, a memory error detector
+==1868== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1868== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1868== Command: ../build/memcheck/bin/floor_test
+==1868== 
+==1868== 
+==1868== HEAP SUMMARY:
+==1868==     in use at exit: 0 bytes in 0 blocks
+==1868==   total heap usage: 5,563 allocs, 5,563 frees, 4,569,794 bytes allocated
+==1868== 
+==1868== All heap blocks were freed -- no leaks are possible
+==1868== 
+==1868== For lists of detected and suppressed errors, rerun with: -s
+==1868== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1900== Memcheck, a memory error detector
+==1900== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1900== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1900== Command: ../build/memcheck/bin/fmod_test
+==1900== 
+==1900== 
+==1900== HEAP SUMMARY:
+==1900==     in use at exit: 0 bytes in 0 blocks
+==1900==   total heap usage: 1,126 allocs, 1,126 frees, 766,785 bytes allocated
+==1900== 
+==1900== All heap blocks were freed -- no leaks are possible
+==1900== 
+==1900== For lists of detected and suppressed errors, rerun with: -s
+==1900== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1932== Memcheck, a memory error detector
+==1932== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1932== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1932== Command: ../build/memcheck/bin/log_test
+==1932== 
+==1932== 
+==1932== HEAP SUMMARY:
+==1932==     in use at exit: 0 bytes in 0 blocks
+==1932==   total heap usage: 862 allocs, 862 frees, 604,508 bytes allocated
+==1932== 
+==1932== All heap blocks were freed -- no leaks are possible
+==1932== 
+==1932== For lists of detected and suppressed errors, rerun with: -s
+==1932== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1964== Memcheck, a memory error detector
+==1964== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1964== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1964== Command: ../build/memcheck/bin/pow_test
+==1964== 
+==1964== 
+==1964== HEAP SUMMARY:
+==1964==     in use at exit: 0 bytes in 0 blocks
+==1964==   total heap usage: 5,042 allocs, 5,042 frees, 3,743,800 bytes allocated
+==1964== 
+==1964== All heap blocks were freed -- no leaks are possible
+==1964== 
+==1964== For lists of detected and suppressed errors, rerun with: -s
+==1964== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==1996== Memcheck, a memory error detector
+==1996== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1996== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1996== Command: ../build/memcheck/bin/sin_test
+==1996== 
+==1996== 
+==1996== HEAP SUMMARY:
+==1996==     in use at exit: 0 bytes in 0 blocks
+==1996==   total heap usage: 730 allocs, 730 frees, 524,434 bytes allocated
+==1996== 
+==1996== All heap blocks were freed -- no leaks are possible
+==1996== 
+==1996== For lists of detected and suppressed errors, rerun with: -s
+==1996== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==2028== Memcheck, a memory error detector
+==2028== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2028== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2028== Command: ../build/memcheck/bin/sqrt_test
+==2028== 
+==2028== 
+==2028== HEAP SUMMARY:
+==2028==     in use at exit: 0 bytes in 0 blocks
+==2028==   total heap usage: 875 allocs, 875 frees, 630,487 bytes allocated
+==2028== 
+==2028== All heap blocks were freed -- no leaks are possible
+==2028== 
+==2028== For lists of detected and suppressed errors, rerun with: -s
+==2028== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
+==2060== Memcheck, a memory error detector
+==2060== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2060== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2060== Command: ../build/memcheck/bin/tan_test
+==2060== 
+==2060== 
+==2060== HEAP SUMMARY:
+==2060==     in use at exit: 0 bytes in 0 blocks
+==2060==   total heap usage: 696 allocs, 696 frees, 497,899 bytes allocated
+==2060== 
+==2060== All heap blocks were freed -- no leaks are possible
+==2060== 
+==2060== For lists of detected and suppressed errors, rerun with: -s
+==2060== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 
