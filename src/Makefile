@@ -1,7 +1,5 @@
 CONFIG ?= debug
 ### many variables are stored in a shared makefile
-MODULES_DIR := Makefile.modules
-export MODULES_DIR
 include Makefile.common
 include Makefile.misc
 # build parameters
@@ -96,12 +94,12 @@ ifndef VALGRIND
 endif
 	@$(MAKE) -s -f Makefile.memcheck $@
 
-.PHONY: asan
-asan: lib
+.PHONY: san
+san: lib
 ifeq "$(ARCHITECTURE)" "arm64"
 	$(error adress sanitizers work only on x86-64 at the time)
 endif
-	@$(MAKE) -s -f Makefile.asan $@
+	@$(MAKE) -s -f Makefile.sanitizers $@
 
 .PHONY: linter_check linter_fix
 linter_fix: LINTFLAGS := -i $(LINTFLAGS)
