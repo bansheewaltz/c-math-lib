@@ -8,7 +8,7 @@ ifeq "$(CONFIG)" "debug"
 	CFLAGS := $(OFLAG) $(DBGFLAGS) $(STDFLAG) $(INCFLAGS) $(WFLAGS)
 endif
 ifeq "$(CONFIG)" "release"
-	OFLAG := -O2
+	OFLAG := -O0
 	CFLAGS := $(OFLAG) $(INCFLAGS)
 endif
 ifeq "$(OS)" "Alpine"
