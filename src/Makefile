@@ -1,4 +1,4 @@
-CONFIG ?= debug
+CONFIG ?= release
 ### many variables are stored in a shared makefile
 include Makefile.common
 include Makefile.misc
