@@ -1,0 +1,25 @@
+Checks: >
+  cppcoreguidelines-*,
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  readability-*,
+  portability-*,
+  performance-*,
+  modernize-*,
+  bugprone-*,
+  hicpp-*,
+  misc-*,
+  google-*,
+  -modernize-macro-to-enum,
+  -bugprone-easily-swappable-parameters,
+WarningsAsErrors: true
+FormatStyle: google
+HeaderFilterRegex: >
+  "(include/).*\\.h$",
+  "(lib/headers/).*\\.h$", 
+  "(test/headers).*\\.h$"
+CheckOptions:
+  - key: readability-identifier-length.IgnoredParameterNames
+    value: ^[abijknxy]$
+  - key: readability-identifier-length.IgnoredVariableNames
+    value: ^[abi]$
