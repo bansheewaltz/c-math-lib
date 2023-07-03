@@ -12,8 +12,8 @@ COV_INF := $(BLD)/coverage_info
 TST_REPORT_R := $(REPORTS)/tests_report_raw.txt
 COV_REPORT := index.html
 # project files
-T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
-T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
+T_SRCS := $(SRCS:$(SRC)/sx_%.c=$(SRC_B)/%_test.c)
+T_EXES := $(SRCS:$(SRC)/sx_%.c=$(BIN)/%_test)
 # build parameters
 LDLIBS  += $(shell pkg-config --libs-only-l check)
 LDFLAGS += $(shell pkg-config --libs-only-L check)
@@ -35,16 +35,16 @@ test:
 	$(info )
 	$(MAKE) -f Makefile.unit_testing $(T_EXES)
 
-$(BIN)/%_test: $(OBJ)/s21_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
+$(BIN)/%_test: $(OBJ)/sx_%.o $(OBJ)/%_test.o | $(COV_INF) $(REPORTS)
 	$(dir_guard)
 	$(CC) $(DBGFLAGS) $(COVFLAG) $^ $(LDFLAGS) $(LDLIBS) -o $@
-	-mv $(OBJ)/s21_$*.gcno $(COV_INF) 2> /dev/null
+	-mv $(OBJ)/sx_$*.gcno $(COV_INF) 2> /dev/null
 	# -./$@ | tee -a $(TST_REPORT_R) > >(bash testing/scripts/format_toutput.sh)
 	-./$@ | tee -a $(TST_REPORT_R)
-	mv $(OBJ)/s21_$*.gcda $(COV_INF)
+	mv $(OBJ)/sx_$*.gcda $(COV_INF)
 
-$(OBJ)/s21_%.o: CFLAGS = $(SOURCE_CFLAGS)
-$(OBJ)/s21_%.o: $(SRC)/s21_%.c | $(OBJ)
+$(OBJ)/sx_%.o: CFLAGS = $(SOURCE_CFLAGS)
+$(OBJ)/sx_%.o: $(SRC)/sx_%.c | $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 $(OBJ)/%_test.o: CFLAGS = $(TEST_CFLAGS)

@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json
 {
-	"name": "s21_math",
+	"name": "sx_math",
 	"image": "docker.io/dondarri/school21-c-dev-ubuntu:excessive",
 	// /// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	// "build": {

@@ -8,8 +8,8 @@ T_INC := $(TST)/headers
 # filenames specification
 # TST_REPORT_R := $(REPORTS)/memcheck_report_raw.log
 # project files
-T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
-T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
+T_SRCS := $(SRCS:$(SRC)/sx_%.c=$(SRC_B)/%_test.c)
+T_EXES := $(SRCS:$(SRC)/sx_%.c=$(BIN)/%_test)
 # compilation parameters
 CK_FORK=no# proper way of memory usage checking when using 'check' framework
 LDLIBS += $(shell pkg-config --libs-only-l check)
@@ -35,7 +35,7 @@ san:
 	$(info *** executing through $(MEMCHECK) with the parameters: $(MEMFLAGS))
 	$(MAKE) -f Makefile.sanitizers $(T_EXES)
 
-$(BIN)/%_test: $(SRC)/s21_%.c $(SRC_B)/%_test.c | $(REPORTS)
+$(BIN)/%_test: $(SRC)/sx_%.c $(SRC_B)/%_test.c | $(REPORTS)
 	$(dir_guard)
 	$(CC) $(CFLAGS) $(SANFLAGS) $^ $(LDFLAGS) $(LDLIBS) -o $@
 	# -(echo && $(MEMCHECK) $(MEMFLAGS) $@) 2> >(bash $(SCRIPTS)/format_memcheck.sh)

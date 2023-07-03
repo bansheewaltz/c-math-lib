@@ -1,4 +1,4 @@
-#include "s21_tests.h"
+#include "sx_tests.h"
 
 #suite fmod
 #test PI
@@ -6,7 +6,7 @@
     double b = 2 * M_PI;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq_tol(exp, res, 10e-6);
 
@@ -16,7 +16,7 @@
     double b = 4.0/9.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res);
 
@@ -26,7 +26,7 @@
     double b = -4.0/9.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res);
 
@@ -36,7 +36,7 @@
     double b = 4.0/9.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res);
 
@@ -46,7 +46,7 @@
     double b = -4.0/9.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res);
 
@@ -56,7 +56,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res); 
 
@@ -66,7 +66,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);    
 
@@ -76,7 +76,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -87,7 +87,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -97,7 +97,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -107,7 +107,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -117,7 +117,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -128,7 +128,7 @@
     double b = INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -139,7 +139,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res); 
 
@@ -149,7 +149,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);    
 
@@ -159,7 +159,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -170,7 +170,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -180,7 +180,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -190,7 +190,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -200,7 +200,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -211,7 +211,7 @@
     double b = -INFINITY;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -222,7 +222,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res); 
@@ -233,7 +233,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -244,7 +244,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -255,7 +255,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -266,7 +266,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -277,7 +277,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -288,7 +288,7 @@
     double b = NAN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -299,7 +299,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res); 
@@ -310,7 +310,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);   
@@ -321,7 +321,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -332,7 +332,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -343,7 +343,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -354,7 +354,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -365,7 +365,7 @@
     double b = 0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -376,7 +376,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
     
     ck_assert_ldouble_eq(exp, res); 
 
@@ -386,7 +386,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res); 
 
@@ -396,7 +396,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -407,7 +407,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -418,7 +418,7 @@
     double b = 7.0/3.0+3;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 */
@@ -428,7 +428,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -438,7 +438,7 @@
     double b = 7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -449,7 +449,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res); 
 
@@ -459,7 +459,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -470,7 +470,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -481,7 +481,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 */
@@ -492,7 +492,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -502,7 +502,7 @@
     double b = -7.0/3.0;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -513,7 +513,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res); 
 
@@ -523,7 +523,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -534,7 +534,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -544,7 +544,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -554,7 +554,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -564,7 +564,7 @@
     double b = DBL_MIN;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -575,7 +575,7 @@
     double b = DBL_MAX;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res); 
 
@@ -585,7 +585,7 @@
     double b = DBL_MAX;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -596,7 +596,7 @@
     double b = DBL_MAX;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -606,7 +606,7 @@
     double b = DBL_MAX;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_eq(exp, res);
 
@@ -616,7 +616,7 @@
     double b = DBL_MAX;
     
     double exp = fmod(a, b);
-    double res = (double)s21_fmod(a, b);
+    double res = (double)sx_fmod(a, b);
 
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);

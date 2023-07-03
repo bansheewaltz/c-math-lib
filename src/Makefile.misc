@@ -19,7 +19,7 @@ tclean:
 	$(RM) temp.dSYM
 
 fpinfo:
-	@$(CC) -DJUST_PRINT lib/utils/s21_print_fp_sysinfo.c -o temp.out
+	@$(CC) -DJUST_PRINT lib/utils/sx_print_fp_sysinfo.c -o temp.out
 	@./temp.out || true
 	@rm temp.out
 .PHONY: fpinfo

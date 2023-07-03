@@ -11,8 +11,8 @@ T_INC := $(TST)/headers
 # filenames specification
 TST_REPORT_R := $(REPORTS)/memcheck_report_raw.log
 # project files
-T_SRCS := $(SRCS:$(SRC)/s21_%.c=$(SRC_B)/%_test.c)
-T_EXES := $(SRCS:$(SRC)/s21_%.c=$(BIN)/%_test)
+T_SRCS := $(SRCS:$(SRC)/sx_%.c=$(SRC_B)/%_test.c)
+T_EXES := $(SRCS:$(SRC)/sx_%.c=$(BIN)/%_test)
 # compilation parameters
 CK_FORK=no# proper way of memory usage checking when using 'check' framework
 LDLIBS += $(shell pkg-config --libs-only-l check)
@@ -36,7 +36,7 @@ memcheck:
 	$(MAKE) -f Makefile.memcheck $(T_EXES)
 	echo -e "\n\nyou can check saved $(MEMCHECK) logs at $(TST_REPORT_R)"
 
-$(BIN)/%_test: $(SRC)/s21_%.c $(SRC_B)/%_test.c | $(REPORTS)
+$(BIN)/%_test: $(SRC)/sx_%.c $(SRC_B)/%_test.c | $(REPORTS)
 	$(dir_guard)
 	$(CC) $(CFLAGS) $^ $(LDFLAGS) $(LDLIBS) -o $@
 	-(echo && $(MEMCHECK) $(MEMFLAGS) $@) 2> >(bash $(SCRIPTS_DIR)/format_memcheck.sh)

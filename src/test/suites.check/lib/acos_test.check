@@ -1,11 +1,11 @@
-#include "s21_tests.h"
+#include "sx_tests.h"
 
 #suite acos
 #test arb_gt_one_pos
     double x = 15.0 / 13.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -15,7 +15,7 @@
     double x = -15.0 / 13.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -25,25 +25,25 @@
     double x = 0.00017 / 0.13;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test arb_lt_one_neg
     double x = -0.00017 / 0.13;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test integral_pos
     double x = 13.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -53,7 +53,7 @@
     double x = -13.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -63,43 +63,43 @@
     double x = 0.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test zero_neg
     double x = -0.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test plus_one
     double x = +1.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test minus_one
     double x = -1.0;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test not_a_number
     double x = NAN;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -109,168 +109,168 @@
     double x = FLT_MIN;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test flt_min_neg
     double x = -FLT_MIN;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test dbl_min_pos
     double x = DBL_MIN;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test dbl_min_neg
     double x = -DBL_MIN;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_pos
     double x = cos(M_PI);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_2_pos
     double x = cos(M_PI / 2.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_3_pos
     double x = cos(M_PI / 3.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_4_pos
     double x = cos(M_PI_4);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_6_pos
     double x = cos(M_PI / 6.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_12_pos
     double x = cos(M_PI / 12.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_neg
     double x = cos(-M_PI);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_2_neg
     double x = cos(-M_PI / 2.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_3_neg
     double x = cos(-M_PI / 3.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_3_pi_4
     double x = cos(3 * M_PI_4);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_6_neg
     double x = cos(-M_PI / 6.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test cos_pi_12_neg
     double x = cos(-M_PI / 12.0);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test one_e_16_neg
     double x = 1e-16;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test one_e_10_neg
     double x = 1e-10;
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test-loop(0, 1000) one_neg__to__one_pos
     double x = -1.0 + _i * (2.0 / 999);
     
     double exp = acos(x);
-    double res = (double)s21_acos(x);
+    double res = (double)sx_acos(x);
     
     ck_assert_double_eq_tol(exp, res, 1e-6);

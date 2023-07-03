@@ -37,7 +37,7 @@ ifdef VALGRIND
 endif
 endif
 
-s21_math.a: $(OBJS)
+sx_math.a: $(OBJS)
 	ar -rsc $@ $^
 	cp $(INC)/$(LIBNAME).h .
 
@@ -82,8 +82,8 @@ ifeq "$(KERNEL)" "Darwin"
 endif
 
 .PHONY: lib
-lib: libs21_math.a
-libs21_math.a: s21_math.a
+lib: libsx_math.a
+libsx_math.a: sx_math.a
 	$(MK) $(LIB)
 	cp $< $(LIB)/$@
 

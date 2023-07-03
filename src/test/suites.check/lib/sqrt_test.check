@@ -1,20 +1,20 @@
-#include "s21_tests.h"
+#include "sx_tests.h"
 
 #suite sqrt
 #test arb_pos
     double x = 15.0/13.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
     
 
 #test arb_neg
     double x = -15.0/13.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -24,16 +24,16 @@
     double x = 13.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test integral_neg
     double x = -13.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -43,34 +43,34 @@
     double x = 0.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test zero_neg
     double x = -0.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test plus_one
     double x = +1.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test minus_one
     double x = -1.0;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -80,7 +80,7 @@
     double x = NAN;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -90,61 +90,61 @@
     double x = M_PI;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pi_2_pos
     double x = M_PI/2 - 0.1;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pi_4_pos
     double x = M_PI/4;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pi_3_pos
     double x = M_PI/3;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pi_6_pos
     double x = M_PI/3;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pos_2_pi
     double x = 2 * M_PI;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test pi_neg
     double x = -M_PI;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -154,7 +154,7 @@
     double x = -M_PI/2;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -164,7 +164,7 @@
     double x = -M_PI/4;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -174,7 +174,7 @@
     double x = -M_PI/3;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -184,7 +184,7 @@
     double x = -M_PI/3;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -194,7 +194,7 @@
     double x = 2 * -M_PI;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -204,34 +204,34 @@
     double x = 999 * 17 * M_PI;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test big_pi
     double x = 999 * 17 * M_PI / 11;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test int_max
     double x = INT_MAX;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test int_min
     double x = INT_MIN;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -241,25 +241,25 @@
     double x = FLT_MIN;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test dbl_min
     double x = DBL_MIN;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
-    ck_assert_double_eq_tol(exp, res, S21_TOLERANCE);
+    ck_assert_double_eq_tol(exp, res, Sx_TOLERANCE);
 
 
 #test flt_max
     double x = FLT_MAX;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
 
@@ -269,7 +269,7 @@
     double x = DBL_MAX;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_double_eq_tol(exp, res, 1e0);
 */
@@ -278,7 +278,7 @@
     double x = INFINITY;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_double_eq(exp, res);
     
@@ -287,7 +287,7 @@
     double x = -INFINITY;
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     ck_assert_ldouble_nan(exp);
     ck_assert_ldouble_nan(res);
@@ -297,7 +297,7 @@
     double x = 0.0 + _i * (1.0 / 17.0);
     
     double exp = sqrt(x);
-    double res = (double)s21_sqrt(x);
+    double res = (double)sx_sqrt(x);
     
     if (x < 0) {
         ck_assert_ldouble_nan(exp);

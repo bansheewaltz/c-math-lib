@@ -1,11 +1,11 @@
-#include "s21_tests.h"
+#include "sx_tests.h"
 
 #suite abs
 #test arb_pos
     int x = 17;
 
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -14,7 +14,7 @@
     int x = -17;
 
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -23,7 +23,7 @@
     int x = 0;
 
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -32,7 +32,7 @@
     int x = INT_MAX; 
     
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -41,7 +41,7 @@
     int x = -INT_MAX; 
     
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
 
@@ -50,7 +50,7 @@
     int x = INT_MIN; 
     
     unsigned int exp = (unsigned int)abs(x);
-    unsigned int res = (unsigned int)s21_abs(x);
+    unsigned int res = (unsigned int)sx_abs(x);
 
     ck_assert_uint_eq(exp, res);
 
@@ -59,6 +59,6 @@
     int x = -1 - INT_MIN;
     
     int exp = abs(x);
-    int res = s21_abs(x);
+    int res = sx_abs(x);
 
     ck_assert_int_eq(exp, res);
